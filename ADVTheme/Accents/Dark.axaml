@@ -1,0 +1,187 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:sys="using:System"
+					x:ClassModifier="internal">
+	<!--General-->
+	<FontFamily x:Key="ADVTheme.Font">fonts:Inter#Inter, $Default</FontFamily>
+	<sys:Double x:Key="ADVTheme.Opacity.Disabled">0.3</sys:Double>
+	<sys:Double x:Key="ADVTheme.IconThickness.Default">2</sys:Double>
+	<Color x:Key="ADVTheme.Palette.AdornerFill">#50333333</Color>
+
+	<!-- ADVTheme Palette -->
+	<Color x:Key="ADVTheme.Palette.Foreground.Base">#FFFBFAF5</Color>
+	<Color x:Key="ADVTheme.Palette.Foreground.Alt">#FFFBFAF5</Color>
+	
+	<Color x:Key="ADVTheme.Palette.Background.Base">#FF191919</Color>
+
+	<Color x:Key="ADVTheme.Palette.Controls.Base">#FF202020</Color>
+	<Color x:Key="ADVTheme.Palette.Controls.Dark">#FF0F0F0F</Color>
+	<Color x:Key="ADVTheme.Palette.Controls.Light">#FF333333</Color>
+	<Color x:Key="ADVTheme.Palette.Controls.Lighter">#FF454545</Color>
+
+	<Color x:Key="ADVTheme.Palette.Border.Base">#FF404040</Color>
+	<Color x:Key="ADVTheme.Palette.Border.Dark">#FF2e2e2e</Color>
+	<Color x:Key="ADVTheme.Palette.Border.Light">#FF525252</Color>
+	<Color x:Key="ADVTheme.Palette.Border.Lighter">#FF636363</Color>
+
+	<Color x:Key="ADVTheme.Palette.Highlight.Base">#FF0179D8</Color>
+	<Color x:Key="ADVTheme.Palette.Highlight.Dark">#FF006DC7</Color>
+	<Color x:Key="ADVTheme.Palette.Highlight.Light">#FF178CEB</Color>
+	<Color x:Key="ADVTheme.Palette.Highlight.Lighter">#FF2399FA</Color>
+
+	<Color x:Key="ADVTheme.Palette.Red.Base">#FFDA010D</Color>
+	<Color x:Key="ADVTheme.Palette.Red.Dark">#FFC7000A</Color>
+	<Color x:Key="ADVTheme.Palette.Red.Light">#FFEB1924</Color>
+	<Color x:Key="ADVTheme.Palette.Red.Lighter">#FFFB232E</Color>
+
+	<Color x:Key="ADVTheme.Palette.Green.Base">#FF0DDA01</Color>
+	<Color x:Key="ADVTheme.Palette.Green.Dark">#FF0AC700</Color>
+	<Color x:Key="ADVTheme.Palette.Green.Light">#FF24EB19</Color>
+	<Color x:Key="ADVTheme.Palette.Green.Lighter">#FF2EFB23</Color>
+
+	<Color x:Key="ADVTheme.Palette.Yellow.Base">#FFDACE01</Color>
+	<Color x:Key="ADVTheme.Palette.Yellow.Dark">#FFC7BE00</Color>
+	<Color x:Key="ADVTheme.Palette.Yellow.Light">#FFEBE019</Color>
+	<Color x:Key="ADVTheme.Palette.Yellow.Lighter">#FFFBF023</Color>
+
+	<Color x:Key="ADVTheme.Palette.Gray.Base">#FF9E9E9E</Color>
+	<Color x:Key="ADVTheme.Palette.Gray.Dark">#FF8C8C8C</Color>
+	<Color x:Key="ADVTheme.Palette.Gray.Light">#FFB0B0B0</Color>
+	<Color x:Key="ADVTheme.Palette.Gray.Lighter">#FFC2C2C2</Color>
+	
+	
+	<!-- ADVTheme Brushes -->
+	<SolidColorBrush x:Key="ADVTheme.Brush.Foreground.Base" Color="{StaticResource ADVTheme.Palette.Foreground.Base}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Foreground.Alt" Color="{StaticResource ADVTheme.Palette.Foreground.Alt}"/>
+	
+	<SolidColorBrush x:Key="ADVTheme.Brush.Background.Base" Color="{StaticResource ADVTheme.Palette.Background.Base}"/>
+	
+	<SolidColorBrush x:Key="ADVTheme.Brush.Controls.Base" Color="{StaticResource ADVTheme.Palette.Controls.Base}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Controls.Dark" Color="{StaticResource ADVTheme.Palette.Controls.Dark}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Controls.Light" Color="{StaticResource ADVTheme.Palette.Controls.Light}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Controls.Lighter" Color="{StaticResource ADVTheme.Palette.Controls.Lighter}"/>
+
+	<SolidColorBrush x:Key="ADVTheme.Brush.Border.Base" Color="{StaticResource ADVTheme.Palette.Border.Base}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Border.Dark" Color="{StaticResource ADVTheme.Palette.Border.Dark}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Border.Light" Color="{StaticResource ADVTheme.Palette.Border.Light}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Border.Lighter" Color="{StaticResource ADVTheme.Palette.Border.Lighter}"/>
+
+	<SolidColorBrush x:Key="ADVTheme.Brush.Highlight.Base" Color="{StaticResource ADVTheme.Palette.Highlight.Base}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Highlight.Dark" Color="{StaticResource ADVTheme.Palette.Highlight.Dark}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Highlight.Light" Color="{StaticResource ADVTheme.Palette.Highlight.Light}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Highlight.Lighter" Color="{StaticResource ADVTheme.Palette.Highlight.Lighter}"/>
+
+	<SolidColorBrush x:Key="ADVTheme.Brush.Red.Base" Color="{StaticResource ADVTheme.Palette.Red.Base}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Red.Dark" Color="{StaticResource ADVTheme.Palette.Red.Dark}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Red.Light" Color="{StaticResource ADVTheme.Palette.Red.Light}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Red.Lighter" Color="{StaticResource ADVTheme.Palette.Red.Lighter}"/>
+
+	<SolidColorBrush x:Key="ADVTheme.Brush.Green.Base" Color="{StaticResource ADVTheme.Palette.Green.Base}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Green.Dark" Color="{StaticResource ADVTheme.Palette.Green.Dark}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Green.Light" Color="{StaticResource ADVTheme.Palette.Green.Light}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Green.Lighter" Color="{StaticResource ADVTheme.Palette.Green.Lighter}"/>
+
+	<SolidColorBrush x:Key="ADVTheme.Brush.Yellow.Base" Color="{StaticResource ADVTheme.Palette.Yellow.Base}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Yellow.Dark" Color="{StaticResource ADVTheme.Palette.Yellow.Dark}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Yellow.Light" Color="{StaticResource ADVTheme.Palette.Yellow.Light}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Yellow.Lighter" Color="{StaticResource ADVTheme.Palette.Yellow.Lighter}"/>
+
+	<SolidColorBrush x:Key="ADVTheme.Brush.Gray.Base" Color="{StaticResource ADVTheme.Palette.Gray.Base}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Gray.Dark" Color="{StaticResource ADVTheme.Palette.Gray.Dark}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Gray.Light" Color="{StaticResource ADVTheme.Palette.Gray.Light}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Gray.Lighter" Color="{StaticResource ADVTheme.Palette.Gray.Lighter}"/>
+	
+	<SolidColorBrush x:Key="ADVTheme.Brush.Notification.Information" Color="{StaticResource ADVTheme.Palette.Highlight.Base}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Notification.Success" Color="{StaticResource ADVTheme.Palette.Green.Base}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Notification.Warning" Color="{StaticResource ADVTheme.Palette.Yellow.Base}"/>
+	<SolidColorBrush x:Key="ADVTheme.Brush.Notification.Error" Color="{StaticResource ADVTheme.Palette.Red.Base}"/>
+
+	<!-- Corners -->
+	<CornerRadius x:Key="ADVTheme.Corner.ProgressBar">4</CornerRadius>
+	<CornerRadius x:Key="ADVTheme.Corner.ProgressBarIndicator">2,0,0,4</CornerRadius>
+	
+	<!--Pens-->
+	<Pen x:Key="ADVTheme.Pen.Foreground.Base" Brush="{DynamicResource ADVTheme.Brush.Foreground.Base}" LineCap="Round" LineJoin="Round"/>
+	<Pen x:Key="ADVTheme.Pen.Foreground.Alt" Brush="{DynamicResource ADVTheme.Brush.Foreground.Alt}" LineCap="Round" LineJoin="Round"/>
+	<Pen x:Key="ADVTheme.Pen.Control.Base" Brush="{DynamicResource ADVTheme.Brush.Control.Base}" LineCap="Round" LineJoin="Round"/>
+	<Pen x:Key="ADVTheme.Pen.Control.Light" Brush="{DynamicResource ADVTheme.Brush.Control.Light}" LineCap="Round" LineJoin="Round"/>
+	<Pen x:Key="ADVTheme.Pen.Border.Base" Brush="{DynamicResource ADVTheme.Brush.Border.Base}" LineCap="Round" LineJoin="Round"/>
+	<Pen x:Key="ADVTheme.Pen.Border.Light" Brush="{DynamicResource ADVTheme.Brush.Border.Light}" LineCap="Round" LineJoin="Round"/>
+	<Pen x:Key="ADVTheme.Pen.Highlight.Base" Brush="{DynamicResource ADVTheme.Brush.Highlight.Base}" LineCap="Round" LineJoin="Round"/>
+	<Pen x:Key="ADVTheme.Pen.Highlight.Light" Brush="{DynamicResource ADVTheme.Brush.Highlight.Light}" LineCap="Round" LineJoin="Round"/>
+	<Pen x:Key="ADVTheme.Pen.Red.Base" Brush="{DynamicResource ADVTheme.Brush.Red.Base}" LineCap="Round" LineJoin="Round"/>
+	<Pen x:Key="ADVTheme.Pen.Red.Light" Brush="{DynamicResource ADVTheme.Brush.Red.Light}" LineCap="Round" LineJoin="Round"/>
+	<Pen x:Key="ADVTheme.Pen.Green.Base" Brush="{DynamicResource ADVTheme.Brush.Green.Base}" LineCap="Round" LineJoin="Round"/>
+	<Pen x:Key="ADVTheme.Pen.Green.Light" Brush="{DynamicResource ADVTheme.Brush.Green.Light}" LineCap="Round" LineJoin="Round"/>
+	<Pen x:Key="ADVTheme.Pen.Yellow.Base" Brush="{DynamicResource ADVTheme.Brush.Yellow.Base}" LineCap="Round" LineJoin="Round"/>
+	<Pen x:Key="ADVTheme.Pen.Yellow.Light" Brush="{DynamicResource ADVTheme.Brush.Yellow.Light}" LineCap="Round" LineJoin="Round"/>
+	<Pen x:Key="ADVTheme.Pen.Gray.Base" Brush="{DynamicResource ADVTheme.Brush.Gray.Base}" LineCap="Round" LineJoin="Round"/>
+	<Pen x:Key="ADVTheme.Pen.Gray.Light" Brush="{DynamicResource ADVTheme.Brush.Gray.Light}" LineCap="Round" LineJoin="Round"/>
+
+	<Thickness x:Key="ThemeBorderThickness">1</Thickness>
+
+	<sys:Double x:Key="ScrollBarThickness">18</sys:Double>
+	<sys:Double x:Key="ScrollBarThumbThickness">8</sys:Double>
+
+	<sys:Double x:Key="IconElementThemeHeight">20</sys:Double>
+	<sys:Double x:Key="IconElementThemeWidth">20</sys:Double>
+
+	<!-- Preview -->
+	<Design.PreviewWith>
+		<Border Padding="20" Background="Magenta">
+			<Grid RowDefinitions="30,30,30,30,30,30,30,30,30" Width="200">
+				<Rectangle Grid.Row="0" Fill="{DynamicResource ADVTheme.Brush.Foreground.Base}"/>
+				<Rectangle Grid.Row="1" Fill="{DynamicResource ADVTheme.Brush.Background.Base}"/>
+
+				<Grid Grid.Row="2" ColumnDefinitions="50,50,50,50">
+					<Rectangle Grid.Column="0" Fill="{DynamicResource ADVTheme.Brush.Controls.Dark}"/>
+					<Rectangle Grid.Column="1" Fill="{DynamicResource ADVTheme.Brush.Controls.Base}"/>
+					<Rectangle Grid.Column="2" Fill="{DynamicResource ADVTheme.Brush.Controls.Light}"/>
+					<Rectangle Grid.Column="3" Fill="{DynamicResource ADVTheme.Brush.Controls.Lighter}"/>
+				</Grid>
+
+				<Grid Grid.Row="3" ColumnDefinitions="50,50,50,50">
+					<Rectangle Grid.Column="0" Fill="{DynamicResource ADVTheme.Brush.Border.Dark}"/>
+					<Rectangle Grid.Column="1" Fill="{DynamicResource ADVTheme.Brush.Border.Base}"/>
+					<Rectangle Grid.Column="2" Fill="{DynamicResource ADVTheme.Brush.Border.Light}"/>
+					<Rectangle Grid.Column="3" Fill="{DynamicResource ADVTheme.Brush.Border.Lighter}"/>
+				</Grid>
+
+				<Grid Grid.Row="4" ColumnDefinitions="50,50,50,50">
+					<Rectangle Grid.Column="0" Fill="{DynamicResource ADVTheme.Brush.Highlight.Dark}"/>
+					<Rectangle Grid.Column="1" Fill="{DynamicResource ADVTheme.Brush.Highlight.Base}"/>
+					<Rectangle Grid.Column="2" Fill="{DynamicResource ADVTheme.Brush.Highlight.Light}"/>
+					<Rectangle Grid.Column="3" Fill="{DynamicResource ADVTheme.Brush.Highlight.Lighter}"/>
+				</Grid>
+
+				<Grid Grid.Row="5" ColumnDefinitions="50,50,50,50">
+					<Rectangle Grid.Column="0" Fill="{DynamicResource ADVTheme.Brush.Red.Dark}"/>
+					<Rectangle Grid.Column="1" Fill="{DynamicResource ADVTheme.Brush.Red.Base}"/>
+					<Rectangle Grid.Column="2" Fill="{DynamicResource ADVTheme.Brush.Red.Light}"/>
+					<Rectangle Grid.Column="3" Fill="{DynamicResource ADVTheme.Brush.Red.Lighter}"/>
+				</Grid>
+
+				<Grid Grid.Row="6" ColumnDefinitions="50,50,50,50">
+					<Rectangle Grid.Column="0" Fill="{DynamicResource ADVTheme.Brush.Green.Dark}"/>
+					<Rectangle Grid.Column="1" Fill="{DynamicResource ADVTheme.Brush.Green.Base}"/>
+					<Rectangle Grid.Column="2" Fill="{DynamicResource ADVTheme.Brush.Green.Light}"/>
+					<Rectangle Grid.Column="3" Fill="{DynamicResource ADVTheme.Brush.Green.Lighter}"/>
+				</Grid>
+
+				<Grid Grid.Row="7" ColumnDefinitions="50,50,50,50">
+					<Rectangle Grid.Column="0" Fill="{DynamicResource ADVTheme.Brush.Yellow.Dark}"/>
+					<Rectangle Grid.Column="1" Fill="{DynamicResource ADVTheme.Brush.Yellow.Base}"/>
+					<Rectangle Grid.Column="2" Fill="{DynamicResource ADVTheme.Brush.Yellow.Light}"/>
+					<Rectangle Grid.Column="3" Fill="{DynamicResource ADVTheme.Brush.Yellow.Lighter}"/>
+				</Grid>
+
+				<Grid Grid.Row="8" ColumnDefinitions="50,50,50,50">
+					<Rectangle Grid.Column="0" Fill="{DynamicResource ADVTheme.Brush.Gray.Dark}"/>
+					<Rectangle Grid.Column="1" Fill="{DynamicResource ADVTheme.Brush.Gray.Base}"/>
+					<Rectangle Grid.Column="2" Fill="{DynamicResource ADVTheme.Brush.Gray.Light}"/>
+					<Rectangle Grid.Column="3" Fill="{DynamicResource ADVTheme.Brush.Gray.Lighter}"/>
+				</Grid>
+			</Grid>
+		</Border>
+	</Design.PreviewWith>
+</ResourceDictionary>

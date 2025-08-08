@@ -1,0 +1,95 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+x:ClassModifier="internal">
+	<Design.PreviewWith>
+		<Grid Height="200" Width="500">
+			<ScrollBar Visibility="Auto" Orientation="Vertical" HorizontalAlignment="Right"/>
+			<TextBlock Text="Help" Height="150"/>
+		</Grid>
+	</Design.PreviewWith>
+
+	<ControlTheme x:Key="{x:Type ScrollBar}"
+	TargetType="ScrollBar">
+		<Setter Property="Cursor" Value="Arrow" />
+		<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Dark}"/>
+
+		<Style Selector="^:horizontal">
+			<Setter Property="Height" Value="7.5" />
+			<Setter Property="Template">
+				<ControlTemplate>
+					<Border Background="{TemplateBinding Background}"
+					UseLayoutRounding="False">
+						<Grid ColumnDefinitions="Auto,*,Auto">
+							<Track Grid.Row="1" Grid.Column="1"
+								   Maximum="{TemplateBinding Maximum}"
+								   Minimum="{TemplateBinding Minimum}"
+								   Orientation="{TemplateBinding Orientation}"
+								   ViewportSize="{TemplateBinding ViewportSize}"
+								   DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+								   Value="{TemplateBinding Value, Mode=TwoWay}">
+								<Thumb Name="thumb" />
+							</Track>
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter>
+		</Style>
+		<Style Selector="^:vertical">
+			<Setter Property="Width" Value="7.5" />
+			<Setter Property="Template">
+				<ControlTemplate>
+					<Border Background="{TemplateBinding Background}"
+					UseLayoutRounding="False">
+						<Grid RowDefinitions="Auto,*,Auto">
+							<Track Grid.Row="1" Grid.Column="1"
+								   IsDirectionReversed="True"
+								   Maximum="{TemplateBinding Maximum}"
+								   Minimum="{TemplateBinding Minimum}"
+								   Orientation="{TemplateBinding Orientation}"
+								   ViewportSize="{TemplateBinding ViewportSize}"
+								   DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+								   Value="{TemplateBinding Value, Mode=TwoWay}">
+								<Thumb Name="thumb" />
+							</Track>
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter>
+		</Style>
+		<Style Selector="^ /template/ Thumb#thumb">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Light}" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate>
+						<Border Background="{TemplateBinding Background}" CornerRadius="{DynamicResource ADVTheme.CornerRadius}"/>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style Selector="^ /template/ Thumb#thumb:pointerover">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}" />
+		</Style>
+		<Style Selector="^ /template/ Thumb#thumb:pressed">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Light}" />
+		</Style>
+		<Style Selector="^:horizontal /template/ Thumb#thumb">
+			<Setter Property="MinWidth" Value="{DynamicResource ScrollBarThickness}" />
+			<Setter Property="Height" Value="{DynamicResource ScrollBarThumbThickness}" />
+		</Style>
+		<Style Selector="^:vertical /template/ Thumb#thumb">
+			<Setter Property="MinHeight" Value="{DynamicResource ScrollBarThickness}" />
+			<Setter Property="Width" Value="{DynamicResource ScrollBarThumbThickness}" />
+		</Style>
+		<Style Selector="^ /template/ RepeatButton.repeat">
+			<Setter Property="Padding" Value="2" />
+			<Setter Property="BorderThickness" Value="0" />
+		</Style>
+		<Style Selector="^ /template/ RepeatButton.repeattrack">
+			<Setter Property="Template">
+				<ControlTemplate>
+					<Border Background="{TemplateBinding Background}" />
+				</ControlTemplate>
+			</Setter>
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>

@@ -1,0 +1,19 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:sys="using:System" xmlns:themes="using:ADVTheme"
+					x:ClassModifier="internal">
+	<ResourceDictionary.ThemeDictionaries>
+		<ResourceInclude x:Key="Dark" Source="avares://ADVTheme/Accents/Dark.axaml"/>
+		<ResourceInclude x:Key="Light" Source="avares://ADVTheme/Accents/Light.axaml"/>
+		<ResourceInclude x:Key="{x:Static themes:ADVTheme.Telegram}" Source="avares://ADVTheme/Accents/Telegram.axaml"/>
+	</ResourceDictionary.ThemeDictionaries>
+	
+	<sys:Double x:Key="ADVTheme.FontSize">12</sys:Double>
+	<CornerRadius x:Key="ADVTheme.CornerRadius">4</CornerRadius>
+
+	<!-- These are specifically for the ColorSliders for the ColorPicker. This is to avoid implementing an internal solution for those. -->
+	<SolidColorBrush x:Key="ColorControlDarkSelectorBrush" Color="Black"/>
+	<SolidColorBrush x:Key="ColorControlLightSelectorBrush" Color="White"/>
+	<SolidColorBrush x:Key="ThemeForegroundBrush" Color="{DynamicResource ADVTheme.Palette.Foreground.Base}"/>
+
+</ResourceDictionary>

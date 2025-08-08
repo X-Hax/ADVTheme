@@ -1,0 +1,28 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Design.PreviewWith>
+		<Border Width="128" Height="128" Padding="20">
+			<Path Data="{StaticResource ADVTheme.Icon.Edit}" Stroke="White"/>
+		</Border>
+	</Design.PreviewWith>
+	
+	<StreamGeometry x:Key="ADVTheme.Icon.Edit">
+		M 15.37177,3.4283771
+		H 5.4719063
+		c -1.8225154,0 -3.2999545,1.4774391 -3.2999545,3.2999537
+		V 26.528058
+		c 0,1.822565 1.4774391,3.299954 3.2999545,3.299954
+		H 25.271633
+		c 1.822565,0 3.299955,-1.477389 3.299955,-3.299954
+		v -9.899864
+
+		m -18.14975,4.949932
+		V 17.453183
+		L 24.859139,3.0158827
+		c 1.139144,-1.1390783 2.985799,-1.1390783 4.124943,0
+		v 0
+		c 1.139144,1.1390783 1.139144,2.9858649 0,4.1249424
+		l -7.837392,7.8373919 -6.599909,6.599909
+		z
+	</StreamGeometry>
+</ResourceDictionary>

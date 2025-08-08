@@ -1,0 +1,88 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal">
+	<Design.PreviewWith>
+		<Border Padding="200">
+			<DropDownButton Content="Dropdown Button">
+				<DropDownButton.Flyout>
+					<MenuFlyout>
+						<MenuItem Header="Test"/>
+					</MenuFlyout>
+				</DropDownButton.Flyout>
+			</DropDownButton>
+		</Border>
+	</Design.PreviewWith>
+	
+	<ControlTheme x:Key="{x:Type DropDownButton}"
+				  TargetType="DropDownButton">
+		<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Base}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Base}" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="CornerRadius" Value="{DynamicResource ADVTheme.CornerRadius}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Brush.Foreground.Base}" />
+		<Setter Property="HorizontalContentAlignment" Value="Center" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Padding" Value="4" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Border Name="RootBorder"
+							Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							ClipToBounds="True" Padding="{TemplateBinding Padding}"
+							CornerRadius="{TemplateBinding CornerRadius}">
+						<Grid Name="InnerGrid">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="Auto" />
+							</Grid.ColumnDefinitions>
+
+							<ContentPresenter Name="PART_ContentPresenter"
+											  Grid.Column="0"
+											  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+											  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+											  Content="{TemplateBinding Content}"
+											  ContentTemplate="{TemplateBinding ContentTemplate}"
+											  RecognizesAccessKey="True" />
+
+							<PathIcon Name="DropDownGlyph"
+									  Grid.Column="1" Width="12" Height="12"
+									  Margin="5,0,5,0" Foreground="{TemplateBinding Foreground}"
+									  Data="{StaticResource ADVTheme.Icon.Chevron}"
+									  HorizontalAlignment="Stretch"
+									  VerticalAlignment="Stretch"
+									  IsHitTestVisible="False"
+									  UseLayoutRounding="False" />
+
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+
+		<Style Selector="^:pointerover">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Light}" />
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}" />
+		</Style>
+
+		<Style Selector="^:pressed">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Light}" />
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Lighter}"/>
+		</Style>
+
+		<Style Selector="^:disabled">
+			<Setter Property="Opacity" Value="{DynamicResource ADVTheme.Opacity.Disabled}" />
+		</Style>
+
+		<Style Selector="^:flyout-open">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Light}" />
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Lighter}"/>
+		</Style>
+
+		<Style Selector="^:flyout-open:pointerover">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Light}" />
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Lighter}"/>
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>

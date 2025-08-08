@@ -1,0 +1,134 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:converters="using:Avalonia.Controls.Converters"
+x:ClassModifier="internal">
+	<Design.PreviewWith>
+		<Border Padding="50">
+			<Grid RowDefinitions="*,*">
+				<Grid RowDefinitions="50,50">
+					<ProgressBar Grid.Row="0" VerticalAlignment="Center" IsIndeterminate="True" />
+					<ProgressBar Grid.Row="1" VerticalAlignment="Center" Value="5" Maximum="10" ShowProgressText="True" />
+				</Grid>
+				<StackPanel Spacing="10">
+
+				</StackPanel>
+				<StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="10">
+					<ProgressBar HorizontalAlignment="Left" IsIndeterminate="True" Orientation="Vertical"/>
+					<ProgressBar HorizontalAlignment="Left" Value="50" Orientation="Vertical" ShowProgressText="True" />
+				</StackPanel>
+			</Grid>
+		</Border>
+	</Design.PreviewWith>
+
+	<converters:StringFormatConverter x:Key="StringFormatConverter" />
+	<converters:CornerRadiusFilterConverter x:Key="ProgressCorners" Filter="BottomRight, BottomLeft, TopRight, TopLeft" Scale="0.75"/>
+
+	<ControlTheme x:Key="{x:Type ProgressBar}"
+				  TargetType="ProgressBar">
+		<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Base}" />
+		<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}" />
+		<Setter Property="CornerRadius" Value="{DynamicResource ADVTheme.CornerRadius}"/>
+		<Setter Property="Transitions">
+			<Setter.Value>
+				<Transitions>
+					<DoubleTransition Property="Value" Duration="0:0:0.1"/>
+				</Transitions>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Template">
+			<ControlTemplate TargetType="ProgressBar">
+				<Grid>
+					<Border Name="PART_Border"
+							Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							CornerRadius="{TemplateBinding CornerRadius}">
+						<Panel>
+							<Border Name="PART_Indicator"
+									Background="{TemplateBinding Foreground}" CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource ProgressCorners}}"
+									IsVisible="{Binding !IsIndeterminate, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Border Name="PART_IndeterminateIndicator" CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource ProgressCorners}}"
+									Background="{TemplateBinding Foreground}"
+									IsVisible="{Binding IsIndeterminate, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Panel>
+					</Border>
+					<LayoutTransformControl Name="PART_LayoutTransformControl"
+											HorizontalAlignment="Center"
+											VerticalAlignment="Center"
+											IsVisible="{Binding ShowProgressText, RelativeSource={RelativeSource TemplatedParent}}">
+						<TextBlock Foreground="{DynamicResource ADVTheme.Brush.Foreground.Base}">
+							<TextBlock.Text>
+								<MultiBinding Converter="{StaticResource StringFormatConverter}">
+									<TemplateBinding Property="ProgressTextFormat" />
+									<Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
+									<TemplateBinding Property="Percentage" />
+									<TemplateBinding Property="Minimum" />
+									<TemplateBinding Property="Maximum" />
+								</MultiBinding>
+							</TextBlock.Text>
+						</TextBlock>
+					</LayoutTransformControl>
+				</Grid>
+			</ControlTemplate>
+		</Setter>
+
+		<Style Selector="^:horizontal /template/ Border#PART_Indicator">
+			<Setter Property="Margin" Value="0,2"/>
+			<Setter Property="HorizontalAlignment" Value="Left" />
+			<Setter Property="VerticalAlignment" Value="Stretch" />
+		</Style>
+		<Style Selector="^:vertical /template/ Border#PART_Indicator">
+			<Setter Property="Margin" Value="2,0"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch" />
+			<Setter Property="VerticalAlignment" Value="Bottom" />
+		</Style>
+		<Style Selector="^:horizontal">
+			<Setter Property="MinWidth" Value="200" />
+			<Setter Property="MinHeight" Value="16" />
+		</Style>
+		<Style Selector="^:vertical">
+			<Setter Property="MinWidth" Value="16" />
+			<Setter Property="MinHeight" Value="200" />
+		</Style>
+		<Style Selector="^:vertical /template/ LayoutTransformControl#PART_LayoutTransformControl">
+			<Setter Property="LayoutTransform">
+				<Setter.Value>
+					<RotateTransform Angle="90" />
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<Style Selector="^:horizontal:indeterminate /template/ Border#PART_IndeterminateIndicator">
+			<Style.Animations>
+				<Animation Easing="LinearEasing"
+				 IterationCount="Infinite"
+				 Duration="0:0:3">
+					<KeyFrame Cue="0%">
+						<Setter Property="TranslateTransform.X" Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateStartingOffset}" />
+					</KeyFrame>
+					<KeyFrame Cue="100%">
+						<Setter Property="TranslateTransform.X" Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateEndingOffset}" />
+					</KeyFrame>
+				</Animation>
+			</Style.Animations>
+			<Setter Property="Width" Value="{Binding TemplateSettings.ContainerWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+			<Setter Property="Margin" Value="0,2"/>
+		</Style>
+		<Style Selector="^:vertical:indeterminate /template/ Border#PART_IndeterminateIndicator">
+			<Style.Animations>
+				<Animation Easing="LinearEasing"
+				 IterationCount="Infinite"
+				 Duration="0:0:3">
+					<KeyFrame Cue="0%">
+						<Setter Property="TranslateTransform.Y" Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateStartingOffset}" />
+					</KeyFrame>
+					<KeyFrame Cue="100%">
+						<Setter Property="TranslateTransform.Y" Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateEndingOffset}" />
+					</KeyFrame>
+				</Animation>
+			</Style.Animations>
+			<Setter Property="Height" Value="{Binding TemplateSettings.ContainerWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+			<Setter Property="Margin" Value="2,0"/>
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>

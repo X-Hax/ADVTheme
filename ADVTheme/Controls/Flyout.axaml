@@ -1,0 +1,7 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ControlTheme x:Key="{x:Type Flyout}" TargetType="Flyout">
+		<Setter Property="ShowMode" Value="TransientWithDismissOnPointerMoveAway"/>
+		<Setter Property="Placement" Value="BottomEdgeAlignedRight"/>
+	</ControlTheme>
+</ResourceDictionary>

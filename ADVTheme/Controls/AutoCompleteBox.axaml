@@ -1,0 +1,55 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+x:ClassModifier="internal">
+	<Design.PreviewWith>
+		<Border Padding="20">
+			<AutoCompleteBox FilterMode="StartsWith">
+			</AutoCompleteBox>
+		</Border>
+	</Design.PreviewWith>
+
+	<ControlTheme x:Key="{x:Type AutoCompleteBox}"
+	TargetType="AutoCompleteBox">
+		<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Background.Base}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Base}" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="CornerRadius" Value="{DynamicResource ADVTheme.CornerRadius}"/>
+		<Setter Property="Padding" Value="4" />
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Panel>
+					<TextBox Name="PART_TextBox"
+							 Padding="{TemplateBinding Padding}"
+							 Background="{TemplateBinding Background}"
+							 BorderBrush="{TemplateBinding BorderBrush}"
+							 BorderThickness="{TemplateBinding BorderThickness}"
+							 CornerRadius="{TemplateBinding CornerRadius}"
+							 CaretIndex="{TemplateBinding CaretIndex, Mode=TwoWay}"
+							 DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+							 Watermark="{TemplateBinding Watermark}"
+							 MaxLength="{TemplateBinding MaxLength}"
+							 InnerLeftContent="{TemplateBinding InnerLeftContent}"
+							 InnerRightContent="{TemplateBinding InnerRightContent}"/>
+
+					<Popup Name="PART_Popup"
+						   MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+						   MaxHeight="{TemplateBinding MaxDropDownHeight}"
+						   IsLightDismissEnabled="True"
+						   PlacementTarget="{TemplateBinding}">
+						<Border Background="{DynamicResource ADVTheme.Brush.Controls.Base}"
+								BorderBrush="{DynamicResource ADVTheme.Brush.Border.Base}"
+								BorderThickness="1">
+							<ListBox Name="PART_SelectingItemsControl"
+									 Background="{TemplateBinding Background}"
+									 BorderThickness="0"
+									 Foreground="{TemplateBinding Foreground}"
+									 ItemTemplate="{TemplateBinding ItemTemplate}"
+									 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+									 ScrollViewer.VerticalScrollBarVisibility="Auto" />
+						</Border>
+					</Popup>
+				</Panel>
+			</ControlTemplate>
+		</Setter>
+	</ControlTheme>
+</ResourceDictionary>

@@ -1,0 +1,64 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+					xmlns:conv="using:ADVTheme.Converters">
+
+	<Design.PreviewWith>
+		<Window Icon="avares://ADVTheme.Demo/Assets/avalonia-logo.ico" Height="300" Width="300"/>
+	</Design.PreviewWith>
+	
+	<conv:DoubleIncrementConverter x:Key="TitleBarFontSizer" ModifierValue="1" ModifierMethod="Add"/>
+	<conv:PlatformBoolConverter x:Key="PlatformVerifier" Platform="Windows"/>
+	<conv:BoolValueConverter x:Key="TitleBarVisibility" ValueType="Integer" TrueValue="32" FalseValue="0"/>
+
+	<ControlTheme x:Key="{x:Type Window}"
+			  TargetType="Window">
+		<Setter Property="FontFamily" Value="{DynamicResource ADVTheme.Font}" />
+		<Setter Property="FontSize" Value="{DynamicResource ADVTheme.FontSize}"/>
+		<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Background.Base}" />
+		<Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource ADV.Color.Border}" />
+		<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Brush.Foreground.Base}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}"/>
+		<Setter Property="BorderThickness" Value="2"/>
+		<Setter Property="ExtendClientAreaToDecorationsHint" Value="{Binding Converter={StaticResource PlatformVerifier}}"/>
+		<Setter Property="Focusable" Value="True"/>
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Panel>
+					<Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
+					<Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
+					<Panel Background="Transparent" Margin="{TemplateBinding WindowDecorationMargin}" />
+					<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+						<Panel>
+							<VisualLayerManager>
+								<TitleBar HorizontalAlignment="Stretch"/>
+							</VisualLayerManager>
+
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="*"/>
+								</Grid.RowDefinitions>
+									<Grid ColumnDefinitions="32,Auto" IsHitTestVisible="False" IsVisible="{TemplateBinding ExtendClientAreaToDecorationsHint}">
+										<Viewbox Grid.Column="0" Child="{DynamicResource WindowIcon}" Margin="6" RenderOptions.BitmapInterpolationMode="HighQuality" MinHeight="{TemplateBinding ExtendClientAreaToDecorationsHint, Converter={StaticResource TitleBarVisibility}}"/>
+										<TextBlock Grid.Column="1" Text="{TemplateBinding Title}" FontSize="{TemplateBinding Property=FontSize, Converter={StaticResource TitleBarFontSizer}}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="Center"/>
+									</Grid>
+								<ContentPresenter Name="PART_ContentPresenter" Grid.Row="1"
+											  ContentTemplate="{TemplateBinding ContentTemplate}"
+											  Content="{TemplateBinding Content}"
+											  Margin="{TemplateBinding Padding}"
+											  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+											  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+							</Grid>
+						</Panel>
+					</Border>
+				</Panel>
+			</ControlTemplate>
+		</Setter>
+
+		<Style Selector="^:not(:focus-within)">
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Base}"/>
+		</Style>
+	</ControlTheme>
+
+</ResourceDictionary>

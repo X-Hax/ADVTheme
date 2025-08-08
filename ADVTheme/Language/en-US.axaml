@@ -1,0 +1,39 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					x:ClassModifier="public">
+	<!-- Any common strings to be shared across apps using these themes should be included here. -->
+	<x:String x:Key="Common.OK">OK</x:String>
+	<x:String x:Key="Common.Cancel">Cancel</x:String>
+	<x:String x:Key="Common.Back">Back</x:String>
+	<x:String x:Key="Common.Yes">Yes</x:String>
+	<x:String x:Key="Common.No">No</x:String>
+	<x:String x:Key="Common.Retry">Retry</x:String>
+	<x:String x:Key="Common.Undo">Undo</x:String>
+	<x:String x:Key="Common.Redo">Redo</x:String>
+	<x:String x:Key="Common.Theme">Theme</x:String>
+	<x:String x:Key="Common.Language">Language</x:String>
+	<x:String x:Key="Common.FontSize">Font Size</x:String>
+	<x:String x:Key="Common.Small">Small</x:String>
+	<x:String x:Key="Common.Normal">Normal</x:String>
+	<x:String x:Key="Common.Medium">Medium</x:String>
+	<x:String x:Key="Common.Large">Large</x:String>
+	<x:String x:Key="Common.Name">Name</x:String>
+	<x:String x:Key="Common.Hue">Hue</x:String>
+	<x:String x:Key="Common.Hue.ToolTip">Sets the spectrum selection window to work by using the Hue value.</x:String>
+	<x:String x:Key="Common.Saturation">Saturation</x:String>
+	<x:String x:Key="Common.Saturation.ToolTip">Sets the spectrum selection window to work by using the Saturation value.</x:String>
+	
+	<!--ManagedFileChooser specific language strings go here.-->
+	<x:String x:Key="FileChooser.ShowHiddenFiles">Show Hidden Files</x:String>
+	<x:String x:Key="FileChooser.Filename">Filename</x:String>
+	<x:String x:Key="FileChooser.DateModified">Date Modified</x:String>
+	<x:String x:Key="FileChooser.FileType">File Type</x:String>
+	<x:String x:Key="FileChooser.FileSize">File Size</x:String>
+	
+	<x:String x:Key="FileChooser.ShowQuickLinks">Show Quick Links</x:String>
+	<x:String x:Key="FileChooser.HideQuickLinks">Hide Quick Links</x:String>
+	
+	<x:String x:Key="FileChooser.ToolTip.QuickLinks">Displays or Hides Quick Link Navigation options</x:String>
+	<x:String x:Key="FileChooser.ToolTip.GoUp">Go up a directory</x:String>
+	<x:String x:Key="FileChooser.ToolTip.Refresh">Refresh</x:String>
+</ResourceDictionary>

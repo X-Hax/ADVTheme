@@ -1,0 +1,62 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+x:ClassModifier="internal">
+	<Design.PreviewWith>
+
+		<Border Width="600" Padding="20">
+			<ListBox Width="200" SelectionMode="Multiple">
+				<ListBox.ContextMenu>
+					<ContextMenu>
+						<MenuItem Header="Test"/>
+						<MenuItem Header="Test"/>
+						<MenuItem Header="Test"/>
+						<MenuItem Header="Test"/>
+					</ContextMenu>
+				</ListBox.ContextMenu>
+				<ListBoxItem Content="Entry 1"/>
+				<ListBoxItem Content="Entry 2"/>
+				<ListBoxItem Content="Entry 3"/>
+				<ListBoxItem Content="Entry 4"/>
+				<ListBoxItem Content="Disabled" IsEnabled="False" IsSelected="True"/>
+			</ListBox>
+		</Border>
+	</Design.PreviewWith>
+
+	<ControlTheme x:Key="{x:Type ListBox}"
+	TargetType="ListBox">
+		<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Background.Base}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Base}" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="CornerRadius" Value="{DynamicResource ADVTheme.CornerRadius}"/>
+		<Setter Property="Padding" Value="4" />
+		<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+		<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+		<Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Border Name="border"
+				BorderBrush="{TemplateBinding BorderBrush}"
+				BorderThickness="{TemplateBinding BorderThickness}"
+				CornerRadius="{TemplateBinding CornerRadius}">
+					<ScrollViewer Name="PART_ScrollViewer"
+					AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+					BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+					Background="{TemplateBinding Background}"
+					HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+					IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+					IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
+					VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+					VerticalSnapPointsType="{TemplateBinding (ScrollViewer.VerticalSnapPointsType)}"
+					HorizontalSnapPointsType="{TemplateBinding (ScrollViewer.HorizontalSnapPointsType)}">
+						<ItemsPresenter Name="PART_ItemsPresenter"
+						Margin="{TemplateBinding Padding}"
+						ItemsPanel="{TemplateBinding ItemsPanel}" />
+					</ScrollViewer>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+		<Style Selector="^:disabled /template/ Border#border">
+			<Setter Property="Opacity" Value="{DynamicResource ADVTheme.Opacity.Disabled}" />
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>

@@ -1,0 +1,40 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+x:ClassModifier="internal">
+	<Design.PreviewWith>
+		<Border Padding="20" Height="400" Width="400">
+			<Grid ColumnDefinitions="*,10,*">
+				<Rectangle Grid.Column="0" Fill="Red"/>
+				<GridSplitter Grid.Column="1" ResizeDirection="Columns"/>
+				<Rectangle Grid.Column="2" Fill="Blue"/>
+			</Grid>
+		</Border>
+	</Design.PreviewWith>
+	<ControlTheme x:Key="{x:Type GridSplitter}"
+	TargetType="GridSplitter">
+		<Setter Property="Focusable" Value="True" />
+		<Setter Property="MinWidth" Value="1" />
+		<Setter Property="MinHeight" Value="1" />
+		<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Base}" />
+		<Setter Property="PreviewContent">
+			<Template>
+				<Rectangle Fill="{DynamicResource ADVTheme.Brush.Highlight.Base}" />
+			</Template>
+		</Setter>
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Border Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						CornerRadius="{TemplateBinding CornerRadius}" />
+			</ControlTemplate>
+		</Setter>
+
+		<Style Selector="^:pointerover">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Lighter}"/>
+		</Style>
+		<Style Selector="^:pressed">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}"/>
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>

@@ -1,0 +1,81 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal" xmlns:conv="using:Avalonia.Controls.Converters"
+					xmlns:advconv="using:ADVTheme.Converters">
+	<Design.PreviewWith>
+		<Border Padding="20">
+			<Grid>
+				<TabControl>
+					<TabItem Header="Tab 1"/>
+					<TabItem Header="Tab 2"/>
+					<TabItem Header="Tab 3"/>
+					<TabItem Header="Tab Disabled" IsEnabled="False"/>
+				</TabControl>
+			</Grid>
+		</Border>
+	</Design.PreviewWith>
+
+	<advconv:DoubleIncrementConverter x:Key="TabItemFontSizeModifier" ModifierMethod="Add" ModifierValue="4"/>
+	<conv:CornerRadiusFilterConverter x:Key="TabItemCorners" Filter="TopLeft, TopRight"/>
+	
+	
+	<ControlTheme x:Key="{x:Type TabItem}"
+				  TargetType="TabItem">
+		<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Background.Base}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Base}" />
+		<Setter Property="BorderThickness" Value="2"/>
+		<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Brush.Foreground.Base}" />
+		<Setter Property="CornerRadius" Value="{DynamicResource ADVTheme.CornerRadius}"/>
+		<Setter Property="HorizontalContentAlignment" Value="Left" />
+		<Setter Property="Padding" Value="10" />
+		<Setter Property="Template">
+			<ControlTemplate>
+				<ContentPresenter Name="PART_ContentPresenter"
+								  Padding="{TemplateBinding Padding}" FontSize="{TemplateBinding FontSize, Converter={StaticResource TabItemFontSizeModifier}}"
+								  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+								  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+								  Background="{TemplateBinding Background}"
+								  BorderBrush="{TemplateBinding BorderBrush}"
+								  BorderThickness="{TemplateBinding BorderThickness}"
+								  Content="{TemplateBinding Header}"
+								  ContentTemplate="{TemplateBinding HeaderTemplate}"
+								  CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource TabItemCorners}}"
+								  RecognizesAccessKey="True"
+                          />
+			</ControlTemplate>
+		</Setter>
+		<Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Dark}"/>
+			<Setter Property="Opacity" Value="{DynamicResource ADVTheme.Opacity.Disabled}" />
+		</Style>
+		<Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Light}" />
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Light}"/>
+		</Style>
+		<Style Selector="^:focus /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Brush.Foreground.Alt}"/>
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Lighter}"/>
+		</Style>
+		<Style Selector="^:selected /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Brush.Foreground.Alt}"/>
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}" />
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}"/>
+		</Style>
+		<Style Selector="^:selected:focus /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Light}" />
+		</Style>
+		<Style Selector="^:selected:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Brush.Foreground.Alt}"/>
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Lighter}"/>
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Light}" />
+		</Style>
+		<Style Selector="^:selected:focus:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Brush.Foreground.Alt}"/>
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Lighter}"/>
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Light}" />
+		</Style>
+		<Style Selector="^[TabStripPlacement=Right]">
+			<Setter Property="HorizontalContentAlignment" Value="Right" />
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>

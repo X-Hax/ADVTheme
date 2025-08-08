@@ -1,0 +1,103 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:controls="using:Avalonia.Controls"
+					xmlns:converters="using:Avalonia.Controls.Converters"
+					xmlns:primitives="using:Avalonia.Controls.Primitives"
+					x:ClassModifier="internal">
+
+	<Design.PreviewWith>
+		<Grid Width="700" Height="700" RowDefinitions="Auto,*" ColumnDefinitions="Auto,*">
+			<ColorPicker Height="64" Width="64" Margin="20" IsAlphaEnabled="False"/>
+		</Grid>
+	</Design.PreviewWith>
+
+	<PlacementMode x:Key="ColorPickerFlyoutPlacement">Top</PlacementMode>
+	
+	<ControlTheme x:Key="ColorPickerDropDownButton" TargetType="DropDownButton">
+		<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Base}"/>
+		<Setter Property="BorderThickness" Value="2"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Border Name="OuterBorder"
+							Background="{DynamicResource ADVTheme.Brush.Controls.Base}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							CornerRadius="{TemplateBinding CornerRadius}">
+						<Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}"
+								Margin="2">
+							<ContentPresenter Padding="{TemplateBinding Padding}"
+										  Content="{TemplateBinding Content}"/>
+						</Border>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+
+		<Style Selector="^:pointerover">
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}"/>
+		</Style>
+		<Style Selector="^:pointerover /template/ Border#OuterBorder">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Light}"/>
+		</Style>
+		<Style Selector="^:flyout-open">
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Light}"/>
+		</Style>
+	</ControlTheme>
+
+	<ControlTheme x:Key="{x:Type ColorPicker}"
+				  TargetType="ColorPicker">
+		<Setter Property="CornerRadius" Value="{DynamicResource ADVTheme.CornerRadius}" />
+		<!-- Alpha position should match CSS (and default slider order) instead of XAML/WinUI -->
+		<Setter Property="HexInputAlphaPosition" Value="Trailing" />
+		<Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+		<Setter Property="VerticalContentAlignment" Value="Stretch"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Base}"/>
+		<Setter Property="BorderThickness" Value="2"/>
+		<Setter Property="Palette">
+			<controls:FluentColorPalette />
+		</Setter>
+		<Setter Property="Template">
+			<ControlTemplate TargetType="{x:Type ColorPicker}">
+				<DropDownButton Theme="{StaticResource ColorPickerDropDownButton}"
+								Background="{TemplateBinding HsvColor, Converter={StaticResource ToBrushConverter}}"
+								CornerRadius="{TemplateBinding CornerRadius}"
+								Content="{TemplateBinding Content}"
+								HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+								VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+								ContentTemplate="{TemplateBinding ContentTemplate}"
+								Padding="0,0,10,0"
+								UseLayoutRounding="False">
+					<DropDownButton.Styles>
+						<Style Selector="FlyoutPresenter.nopadding">
+							<Setter Property="Padding" Value="0" />
+						</Style>
+					</DropDownButton.Styles>
+					<DropDownButton.Flyout>
+						<Flyout FlyoutPresenterClasses="nopadding"
+								Placement="{DynamicResource ColorPickerFlyoutPlacement}">
+							<ColorView Width="400" IsAlphaEnabled="{TemplateBinding IsAlphaEnabled}"/>
+						</Flyout>
+					</DropDownButton.Flyout>
+				</DropDownButton>
+			</ControlTemplate>
+		</Setter>
+
+		<!--
+    <Style Selector="^ /template/ primitives|ColorSlider#ColorSpectrumThirdComponentSlider[ColorComponent=Component1]">
+      <Setter Property="IsPerceptive" Value="True" />
+    </Style>
+
+    <Style Selector="^ /template/ primitives|ColorSlider#Component1Slider[ColorModel=Rgba]">
+      <Setter Property="IsPerceptive" Value="False" />
+    </Style>
+    <Style Selector="^ /template/ primitives|ColorSlider#Component2Slider[ColorModel=Rgba]">
+      <Setter Property="IsPerceptive" Value="False" />
+    </Style>
+    <Style Selector="^ /template/ primitives|ColorSlider#Component3Slider[ColorModel=Rgba]">
+      <Setter Property="IsPerceptive" Value="False" />
+    </Style>
+    -->
+	</ControlTheme>
+	
+</ResourceDictionary>

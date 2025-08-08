@@ -1,0 +1,104 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+x:ClassModifier="internal" xmlns:conv="using:Avalonia.Controls.Converters">
+
+	<Design.PreviewWith>
+		<Border Padding="20">
+			<ButtonSpinner Width="100"/>
+		</Border>
+	</Design.PreviewWith>
+
+	<conv:CornerRadiusFilterConverter x:Key="TopSpinner" Filter="TopRight" Scale="0.5"/>
+	<conv:CornerRadiusFilterConverter x:Key="BottomSpinner" Filter="BottomRight" Scale="0.5"/>
+	
+	<ControlTheme x:Key="SpinnerButton" BasedOn="{StaticResource {x:Type RepeatButton}}" TargetType="RepeatButton">
+		<Setter Property="Background" Value="Transparent" />
+		<Setter Property="BorderBrush" Value="Transparent" />
+		<Setter Property="BorderThickness" Value="0"/>
+		<Style Selector="^:pointerover">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Light}" />
+		</Style>
+		<Style Selector="^:pressed">
+			<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Brush.Foreground.Alt}"/>
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}"/>
+		</Style>
+	</ControlTheme>
+
+	<ControlTheme x:Key="{x:Type ButtonSpinner}"
+	TargetType="ButtonSpinner">
+		<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Base}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Base}" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="CornerRadius" Value="{DynamicResource ADVTheme.CornerRadius}"/>
+		<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Focusable" Value="True" />
+		<Setter Property="Template">
+			<ControlTemplate>
+				<DataValidationErrors>
+					<Border Name="border" Margin="{TemplateBinding Padding}"
+							HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+							VerticalAlignment="{TemplateBinding VerticalAlignment}"
+							Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							CornerRadius="{TemplateBinding CornerRadius}">
+						<DockPanel>
+							<UniformGrid Name="PART_SpinnerPanel" TabIndex="2"
+										 DockPanel.Dock="Right"
+										 IsVisible="{TemplateBinding ShowButtonSpinner}"
+										 Rows="2">
+								<RepeatButton Name="PART_IncreaseButton" CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource TopSpinner}}"
+											  IsTabStop="{TemplateBinding IsTabStop}"
+											  Theme="{StaticResource SpinnerButton}">
+									<Path Width="8" Height="4"
+										  HorizontalAlignment="Center"
+										  VerticalAlignment="Center"
+										  Data="M0,5 L4.5,.5 9,5 6,5 4.5,3.5 3,5 z"
+										  Fill="{DynamicResource ADVTheme.Brush.Foreground.Base}"
+										  Stretch="Uniform" />
+								</RepeatButton>
+								<RepeatButton Name="PART_DecreaseButton" CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource BottomSpinner}}"
+											  IsTabStop="{TemplateBinding IsTabStop}"
+											  Theme="{StaticResource SpinnerButton}">
+									<Path Width="8" Height="4"
+										  HorizontalAlignment="Center"
+										  VerticalAlignment="Center"
+										  Data="M0,0 L3,0 4.5,1.5 6,0 9,0 4.5,4.5 z"
+										  Fill="{DynamicResource ADVTheme.Brush.Foreground.Base}"
+										  Stretch="Uniform" />
+								</RepeatButton>
+							</UniformGrid>
+							<ContentPresenter Name="PART_ContentPresenter"
+											  Grid.Column="1" TabIndex="1"
+											  Padding="{TemplateBinding Padding}"
+											  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+											  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+											  Content="{TemplateBinding Content}"
+											  ContentTemplate="{TemplateBinding ContentTemplate}" />
+						</DockPanel>
+					</Border>
+				</DataValidationErrors>
+			</ControlTemplate>
+		</Setter>
+		<Style Selector="^:left">
+			<Style Selector="^ /template/ UniformGrid#PART_SpinnerPanel">
+				<Setter Property="DockPanel.Dock" Value="Left" />
+			</Style>
+		</Style>
+		<Style Selector="^:pointerover /template/ Border#border">
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}" />
+		</Style>
+		<Style Selector="^:focus-within">
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Light}" />
+		</Style>
+		<Style Selector="^:error /template/ Border#border">
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Red.Base}" />
+		</Style>
+		<Style Selector="^:disabled">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Dark}"/>
+			<Setter Property="Opacity" Value="{DynamicResource ADVTheme.Opacity.Disabled}"/>
+		</Style>
+	</ControlTheme>
+
+</ResourceDictionary>

@@ -1,0 +1,11 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<Design.PreviewWith>
+		<Border Width="128" Height="128" Padding="20">
+			<Path Data="{StaticResource ADVTheme.Icon.File}" Stroke="White"/>
+		</Border>
+	</Design.PreviewWith>
+	
+	<StreamGeometry x:Key="ADVTheme.Icon.File">M 2 1 L 5 1 Q 6 1 7 2 L 9 4 Q 10 5 10 6 L 10 13 Q 10 14 9 14 L 2 14 Q 1 14 1 13 L 1 2 Q 1 1 2 1 M 3 5 L 8 5 M 3 7 L 8 7 M 3 9 L 8 9 M 3 11 L 8 11</StreamGeometry>
+</ResourceDictionary>

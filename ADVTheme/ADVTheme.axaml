@@ -1,0 +1,15 @@
+<Styles x:Class="ADVTheme.ADVTheme"
+		xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Styles.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<MergeResourceInclude Source="avares://ADVTheme/Accents/Base.axaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Styles.Resources>
+
+	<StyleInclude Source="avares://Avalonia.Controls.ColorPicker/Themes/Simple/Simple.xaml" />
+	<StyleInclude Source="avares://ADVTheme/Icons/ADVThemeIcons.axaml"/>
+	<StyleInclude Source="avares://ADVTheme/Controls/ADVThemeControls.axaml"/>
+</Styles>

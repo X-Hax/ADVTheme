@@ -1,0 +1,74 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+x:ClassModifier="internal" xmlns:conv="using:Avalonia.Controls.Converters">
+
+	<Design.PreviewWith>
+		<Border Padding="20">
+			<StackPanel>
+				<ToggleButton ClickMode="Press" Height="50"/>
+				<ToggleButton ClickMode="Press" Height="50" IsEnabled="False" IsChecked="False"/>
+			</StackPanel>
+		</Border>
+	</Design.PreviewWith>
+	
+	<conv:MarginMultiplierConverter x:Key="PaddingModifier" Bottom="True" Left="True" Right="True" Top="True" Indent="0.5"/>
+	<conv:CornerRadiusFilterConverter x:Key="InnerRadius" Filter="BottomLeft, BottomRight, TopLeft, TopRight" Scale="0.5"/>
+
+	<ControlTheme x:Key="{x:Type ToggleButton}"
+	TargetType="ToggleButton">
+		<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Base}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Base}" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="CornerRadius" Value="{DynamicResource ADVTheme.CornerRadius}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Brush.Foreground.Base}" />
+		<Setter Property="Padding" Value="4" />
+		<Setter Property="HorizontalContentAlignment" Value="Center" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Border Background="Transparent">
+					<Border Name="PART_Border"
+							Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}">
+						<ContentPresenter Name="PART_ContentPresenter"
+									HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+									VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+									Content="{TemplateBinding Content}" Padding="{TemplateBinding Padding}"
+									ContentTemplate="{TemplateBinding ContentTemplate}"
+									CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource InnerRadius}}"
+									RecognizesAccessKey="True"
+									TextElement.Foreground="{TemplateBinding Foreground}" />
+					</Border>
+				</Border>
+
+			</ControlTemplate>
+		</Setter>
+		<Style Selector="^:pointerover">
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}" />
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Light}"/>
+		</Style>
+		<Style Selector="^:pressed">
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Light}"/>
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Lighter}" />
+		</Style>
+		<Style Selector="^:checked">
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}"/>
+		</Style>
+		<Style Selector="^:disabled">
+			<Setter Property="Opacity" Value="{DynamicResource ADVTheme.Opacity.Disabled}" />
+		</Style>
+
+		<Style Selector="^:checked /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}" />
+			<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Brush.Foreground.Alt}"/>
+		</Style>
+		<Style Selector="^:checked:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Light}"/>
+		</Style>
+		<Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Lighter}"/>
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>

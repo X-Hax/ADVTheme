@@ -1,0 +1,47 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+x:ClassModifier="internal">
+
+	<Design.PreviewWith>
+		<Border Padding="20">
+			<RepeatButton Content="This button repeats."/>
+		</Border>
+	</Design.PreviewWith>
+
+	<ControlTheme x:Key="{x:Type RepeatButton}"
+	TargetType="RepeatButton">
+		<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Base}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Base}" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="CornerRadius" Value="{DynamicResource ADVTheme.CornerRadius}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Brush.Foreground.Base}" />
+		<Setter Property="HorizontalContentAlignment" Value="Center" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Padding" Value="4" />
+		<Setter Property="Template">
+			<ControlTemplate>
+				<ContentPresenter Name="PART_ContentPresenter"
+				Padding="{TemplateBinding Padding}"
+				HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+				VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+				Background="{TemplateBinding Background}"
+				BorderBrush="{TemplateBinding BorderBrush}"
+				BorderThickness="{TemplateBinding BorderThickness}"
+				Content="{TemplateBinding Content}"
+				ContentTemplate="{TemplateBinding ContentTemplate}"
+				CornerRadius="{TemplateBinding CornerRadius}"
+				TextElement.Foreground="{TemplateBinding Foreground}" />
+			</ControlTemplate>
+		</Setter>
+		<Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Light}"/>
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}" />
+		</Style>
+		<Style Selector="^:disabled">
+			<Setter Property="Opacity" Value="{DynamicResource ADVTheme.Opacity.Disabled}" />
+		</Style>
+		<Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}"/>
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>

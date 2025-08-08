@@ -1,0 +1,58 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+x:ClassModifier="internal">
+
+	<Design.PreviewWith>
+		<Border Padding="20">
+			<NumericUpDown Value="0" Width="100"/>
+		</Border>
+	</Design.PreviewWith>
+
+	<ControlTheme x:Key="{x:Type NumericUpDown}"
+	TargetType="NumericUpDown">
+		<Setter Property="Background" Value="{DynamicResource ADV.Brushes.Controls.Base}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Base}" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="CornerRadius" Value="{DynamicResource ADVTheme.CornerRadius}"/>
+		<Setter Property="Padding" Value="4" />
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Border Background="Transparent">
+					<DataValidationErrors>
+						<ButtonSpinner Name="PART_Spinner"
+										 HorizontalContentAlignment="Stretch"
+										 VerticalContentAlignment="Stretch"
+										 IsTabStop="False"
+										 Padding="0"
+										 MinWidth="0"
+										 AllowSpin="{TemplateBinding AllowSpin}"
+										 Background="{TemplateBinding Background}"
+										 BorderBrush="{TemplateBinding BorderBrush}"
+										 BorderThickness="{TemplateBinding BorderThickness}"
+										 ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}"
+										 CornerRadius="{TemplateBinding CornerRadius}"
+										 ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}">
+							<TextBox Name="PART_TextBox"
+									 Padding="{TemplateBinding Padding}"
+									 ScrollViewer.VerticalScrollBarVisibility="Disabled"
+									 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+									 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+									 AcceptsReturn="False"
+									 Background="{TemplateBinding Background}"
+									 BorderThickness="0"
+									 IsReadOnly="{TemplateBinding IsReadOnly}"
+									 Text="{TemplateBinding Text}"
+									 TextAlignment="{TemplateBinding TextAlignment}"
+									 TextWrapping="NoWrap"
+									 Watermark="{TemplateBinding Watermark}"
+									 InnerLeftContent="{Binding InnerLeftContent, RelativeSource={RelativeSource TemplatedParent}}"
+									 InnerRightContent="{Binding InnerRightContent, RelativeSource={RelativeSource TemplatedParent}}"/>
+						</ButtonSpinner>
+					</DataValidationErrors>
+				</Border>
+
+			</ControlTemplate>
+		</Setter>
+	</ControlTheme>
+</ResourceDictionary>

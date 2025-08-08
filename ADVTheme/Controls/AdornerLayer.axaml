@@ -1,0 +1,27 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+x:ClassModifier="internal">
+
+	<ControlTheme x:Key="AdornerRect" TargetType="Rectangle">
+		<Setter Property="Margin" Value="1"/>
+		<Setter Property="Stroke" Value="{DynamicResource ADVTheme.Brush.Yellow.Dark}"/>
+		<Setter Property="StrokeThickness" Value="1"/>
+		<Setter Property="Transitions">
+			<Transitions>
+				<BrushTransition Property="Stroke" Duration="0:0:0.2"/>
+			</Transitions>
+		</Setter>
+
+		<Style Selector="^:pointerover">
+			<Setter Property="Stroke" Value="{DynamicResource ADVTheme.Brush.Yellow.Lighter}"/>
+		</Style>
+	</ControlTheme>
+
+	<ControlTheme x:Key="{x:Type AdornerLayer}" TargetType="AdornerLayer">
+		<Setter Property="DefaultFocusAdorner">
+			<FocusAdornerTemplate>
+				<Rectangle Name="PART_Overlay" Theme="{StaticResource AdornerRect}"/>
+			</FocusAdornerTemplate>
+		</Setter>
+	</ControlTheme>
+</ResourceDictionary>

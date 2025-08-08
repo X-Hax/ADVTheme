@@ -1,0 +1,355 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					x:ClassModifier="internal" xmlns:conv="using:ADVTheme.Converters">
+	<Design.PreviewWith>
+		<Border Margin="20" Width="642" Height="500" >
+			<DockPanel LastChildFill="True">
+				<StackPanel Spacing="10" DockPanel.Dock="Top">
+					<Slider Value="50" />
+					<Slider IsDirectionReversed="True" Value="50" Maximum="75"/>
+					<Slider Value="50" TickPlacement="TopLeft" TickFrequency="10"/>
+					<Slider Value="50" TickPlacement="BottomRight" TickFrequency="20"/>
+					<Slider Value="50" TickPlacement="Outside" TickFrequency="10" IsSnapToTickEnabled="True"/>
+					<Slider IsEnabled="False" Value="50" />
+				</StackPanel>
+				<StackPanel Spacing="10" Orientation="Horizontal">
+					<Slider Value="50" Orientation="Vertical" />
+					<Slider IsDirectionReversed="True" Value="50" Orientation="Vertical" />
+					<Slider IsEnabled="False" Orientation="Vertical" Value="50" />
+					<Slider Value="50" TickPlacement="TopLeft" TickFrequency="10" Orientation="Vertical" />
+					<Slider Value="50" TickPlacement="BottomRight" TickFrequency="10" Orientation="Vertical" />
+					<Slider Value="50" TickPlacement="Outside" TickFrequency="10" Orientation="Vertical" IsSnapToTickEnabled="True"/>
+				</StackPanel>
+			</DockPanel>
+		</Border>
+	</Design.PreviewWith>
+
+	<conv:MultiDoubleComparer x:Key="DoubleComparer"/>
+
+	<StreamGeometry x:Key="ThumbIcon">M13 6Q14 7 14 9L14 21Q14 23 12 23L2 23Q0 23 0 21L0 9Q0 7 1 6L5 2Q7 0 9 2z</StreamGeometry>
+	<StreamGeometry x:Key="ThumbIconVertical">M17 13Q16 14 14 14L2 14Q0 14 0 12L0 2Q0 0 2 0L14 0Q16-0 17 1L21 5Q23 7 21 9z</StreamGeometry>
+	
+	<ControlTheme x:Key="SliderThumbHorizontal" TargetType="Thumb">
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Border Background="Transparent" Padding="1">
+					<Path Fill="{TemplateBinding Background}" Data="{StaticResource ThumbIcon}"
+						  Stretch="None"
+						  Stroke="{TemplateBinding BorderBrush}" StrokeThickness="2"/>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+	</ControlTheme>
+
+	<ControlTheme x:Key="HorizontalRepeatButton" TargetType="RepeatButton">
+		<Setter Property="Height" Value="5"/>
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Grid>
+					<Border Name="FocusTarget" Margin="0,-10" Background="Transparent"/>
+					<Border Name="TrackBackground"
+							Background="{TemplateBinding Background}"
+							CornerRadius="{TemplateBinding CornerRadius}" BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Height="{TemplateBinding Height}"
+							VerticalAlignment="Center"/>
+				</Grid>
+			</ControlTemplate>
+		</Setter>
+		<Setter Property="Transitions">
+			<Transitions>
+				<DoubleTransition Property="Height" Duration="0:0:0.1"/>
+				<BrushTransition Property="Background" Duration="0:0:0.1"/>
+			</Transitions>
+		</Setter>
+	</ControlTheme>
+
+	<ControlTheme x:Key="SliderThumbVertical" TargetType="Thumb">
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Border Background="Transparent" Padding="1">
+					<Path Fill="{TemplateBinding Background}" Data="{StaticResource ThumbIconVertical}"
+						  Stretch="None" Stroke="{TemplateBinding BorderBrush}"
+						  StrokeThickness="2">
+					</Path>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+	</ControlTheme>
+
+	<ControlTheme x:Key="VerticalRepeatButton" TargetType="RepeatButton">
+		<Setter Property="Width" Value="5"/>
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Grid>
+					<Border Name="FocusTarget" Margin="0,-10" Background="Transparent" />
+					<Border Name="TrackBackground"
+							Background="{TemplateBinding Background}"
+							CornerRadius="{TemplateBinding CornerRadius}" BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Width="{TemplateBinding Width}"
+							HorizontalAlignment="Center"/>
+				</Grid>
+			</ControlTemplate>
+		</Setter>
+		<Setter Property="Transitions">
+			<Transitions>
+				<DoubleTransition Property="Width" Duration="0:0:0.1"/>
+				<BrushTransition Property="Background" Duration="0:0:0.1"/>
+			</Transitions>
+		</Setter>
+	</ControlTheme>
+
+	<ControlTheme x:Key="{x:Type Slider}" TargetType="Slider">
+		<Setter Property="Background" Value="{DynamicResource ADVTheme.Palette.Controls.Base}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Palette.Highlight.Base}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Palette.Controls.Light}"/>
+		<Setter Property="CornerRadius" Value="2"/>
+		
+		<!-- Horizontal -->
+		<Style Selector="^:horizontal">
+			<Setter Property="MinWidth" Value="40" />
+			<Setter Property="MinHeight" Value="20" />
+			<Setter Property="Template">
+				<ControlTemplate>
+					<Grid Name="grid">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" MinHeight="5"/>
+							<RowDefinition Height="Auto" MinHeight="20" />
+							<RowDefinition Height="Auto" MinHeight="5"/>
+						</Grid.RowDefinitions>
+						<TickBar Name="TopTickBar" Grid.ColumnSpan="3" Grid.RowSpan="3"
+								 Ticks="{TemplateBinding Ticks}"
+								 TickFrequency="{TemplateBinding Slider.TickFrequency}"
+								 Orientation="{TemplateBinding Slider.Orientation}"
+								 Minimum="{TemplateBinding Slider.Minimum}"
+								 Maximum="{TemplateBinding Slider.Maximum}"
+								 Height="10"
+								 Margin="12,0,12,0"
+								 VerticalAlignment="Bottom"
+								 Placement="Top"
+								 IsVisible="False"
+								 Fill="{TemplateBinding Foreground}"/>
+						<TickBar Name="BottomTickBar" Grid.ColumnSpan="3" Grid.RowSpan="3"
+								 Ticks="{TemplateBinding Ticks}"
+								 TickFrequency="{TemplateBinding Slider.TickFrequency}"
+								 Orientation="{TemplateBinding Slider.Orientation}"
+								 Minimum="{TemplateBinding Slider.Minimum}"
+								 Maximum="{TemplateBinding Slider.Maximum}"
+								 Height="10"
+								 Margin="12,0,12,0"
+								 VerticalAlignment="Top"
+								 Placement="Bottom"
+								 IsVisible="False"
+								 Fill="{TemplateBinding Foreground}" />
+						<Border Name="TrackBackground"
+								Grid.Row="1" CornerRadius="{TemplateBinding CornerRadius}"
+								Height="6" BorderThickness="2"
+								Margin="0,6" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding Background}"
+								VerticalAlignment="Center">
+							<Border.Tag>
+								<MultiBinding Converter="{StaticResource DoubleComparer}">
+									<Binding ElementName="PART_Track" Path="Value"/>
+									<Binding ElementName="PART_Track" Path="Maximum"/>
+								</MultiBinding>
+							</Border.Tag>
+							<Border.Transitions>
+								<Transitions>
+									<DoubleTransition Property="Height" Duration="0:0:0.1"/>
+									<BrushTransition Property="Background" Duration="0:0:0.1"/>
+									<BrushTransition Property="BorderBrush" Duration="0:0:0.1"/>
+								</Transitions>
+							</Border.Transitions>
+						</Border>
+						<Track Name="PART_Track"
+							   Grid.Row="1"
+							   IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+							   Orientation="Horizontal">
+							<Thumb Name="thumb" Theme="{StaticResource SliderThumbHorizontal}"
+								   Background="{TemplateBinding Background}"
+								   BorderBrush="{TemplateBinding BorderBrush}"/>
+							<Track.DecreaseButton>
+								<RepeatButton Name="PART_DecreaseButton" CornerRadius="{TemplateBinding CornerRadius}" Margin="0,0,-6,0"
+											  Theme="{StaticResource HorizontalRepeatButton}" Background="{TemplateBinding BorderBrush}">
+									<RepeatButton.Tag>
+										<MultiBinding Converter="{StaticResource DoubleComparer}">
+											<Binding ElementName="PART_Track" Path="Value"/>
+											<Binding ElementName="PART_Track" Path="Minimum"/>
+										</MultiBinding>
+									</RepeatButton.Tag>
+								</RepeatButton>
+							</Track.DecreaseButton>
+							<Track.IncreaseButton>
+								<RepeatButton Name="PART_IncreaseButton"
+											  Theme="{StaticResource HorizontalRepeatButton}" Background="Transparent"/>
+							</Track.IncreaseButton>
+						</Track>
+					</Grid>
+				</ControlTemplate>
+			</Setter>
+		</Style>
+
+		<!-- Vertical Style -->
+		<Style Selector="^:vertical">
+			<Setter Property="MinWidth" Value="20" />
+			<Setter Property="MinHeight" Value="40" />
+			<Setter Property="Template">
+				<ControlTemplate>
+					<Grid Name="grid">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" MinWidth="5" />
+							<ColumnDefinition Width="Auto" MinWidth="20" />
+							<ColumnDefinition Width="Auto" MinWidth="5" />
+						</Grid.ColumnDefinitions>
+						<TickBar Name="LeftTickBar" Grid.RowSpan="3" Grid.ColumnSpan="3"
+								 Ticks="{TemplateBinding Ticks}"
+								 TickFrequency="{TemplateBinding Slider.TickFrequency}"
+								 Orientation="{TemplateBinding Slider.Orientation}"
+								 Minimum="{TemplateBinding Slider.Minimum}"
+								 Maximum="{TemplateBinding Slider.Maximum}"
+								 Width="10" Margin="0,12,0,12"
+								 HorizontalAlignment="Right"
+								 Placement="Left"
+								 IsVisible="False"
+								 Fill="{TemplateBinding Foreground}"/>
+						<TickBar Name="RightTickBar" Grid.RowSpan="3" Grid.ColumnSpan="3"
+								 Ticks="{TemplateBinding Ticks}"
+								 TickFrequency="{TemplateBinding Slider.TickFrequency}"
+								 Orientation="{TemplateBinding Slider.Orientation}"
+								 Minimum="{TemplateBinding Slider.Minimum}"
+								 Maximum="{TemplateBinding Slider.Maximum}"
+								 Width="10" Margin="0,12,0,12"
+								 HorizontalAlignment="Left"
+								 Placement="Right"
+								 IsVisible="False"
+								 Fill="{TemplateBinding Foreground}"/>
+						<Border Name="TrackBackground"
+								Grid.Column="1" CornerRadius="{TemplateBinding CornerRadius}"
+								Width="6" BorderThickness="2"
+								Margin="6,0" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding Background}">
+							<Border.Tag>
+								<MultiBinding Converter="{StaticResource DoubleComparer}">
+									<Binding ElementName="PART_Track" Path="Value"/>
+									<Binding ElementName="PART_Track" Path="Maximum"/>
+								</MultiBinding>
+							</Border.Tag>
+							<Border.Transitions>
+								<Transitions>
+									<DoubleTransition Property="Width" Duration="0:0:0.1"/>
+									<BrushTransition Property="Background" Duration="0:0:0.1"/>
+									<BrushTransition Property="BorderBrush" Duration="0:0:0.1"/>
+								</Transitions>
+							</Border.Transitions>
+						</Border>
+						<Track Name="PART_Track"
+							 Grid.Column="1"
+							 IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+							 Orientation="Vertical">
+							<Thumb Name="thumb" Theme="{StaticResource SliderThumbVertical}"
+								   Background="{TemplateBinding Background}"
+								   BorderBrush="{TemplateBinding BorderBrush}"/>
+							<Track.DecreaseButton>
+								<RepeatButton Name="PART_DecreaseButton" CornerRadius="{TemplateBinding CornerRadius}" Margin="0,-6,0,0"
+											Theme="{StaticResource VerticalRepeatButton}" Background="{TemplateBinding BorderBrush}">
+									<RepeatButton.Tag>
+										<MultiBinding Converter="{StaticResource DoubleComparer}">
+											<Binding ElementName="PART_Track" Path="Value"/>
+											<Binding ElementName="PART_Track" Path="Minimum"/>
+										</MultiBinding>
+									</RepeatButton.Tag>
+								</RepeatButton>
+							</Track.DecreaseButton>
+							<Track.IncreaseButton>
+								<RepeatButton Name="PART_IncreaseButton"
+											Theme="{StaticResource VerticalRepeatButton}" Background="Transparent"/>
+							</Track.IncreaseButton>
+						</Track>
+					</Grid>
+				</ControlTemplate>
+			</Setter>
+		</Style>
+
+		<!-- Templated Parts -->
+		<Style Selector="^ /template/ Track#PART_Track">
+			<Setter Property="Minimum" Value="{TemplateBinding Minimum}" />
+			<Setter Property="Maximum" Value="{TemplateBinding Maximum}" />
+			<Setter Property="Value" Value="{TemplateBinding Value, Mode=TwoWay}" />
+		</Style>
+		<Style Selector="^ /template/ Border#TrackBackground">
+			<Setter Property="BorderThickness" Value="2" />
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Palette.Controls.Base}" />
+		</Style>
+		<Style Selector="^ /template/ TickBar">
+			<Setter Property="Ticks" Value="{TemplateBinding Ticks}" />
+		</Style>
+
+		<!-- Disabled States -->
+		<Style Selector="^:disabled">
+			<Setter Property="Opacity" Value="{DynamicResource ADVTheme.Opacity.Disabled}" />
+		</Style>
+		<Style Selector="^:disabled /template/ Thumb#thumb">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Palette.Controls.Light}"/>
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Palette.Border.Dark}"/>
+		</Style>
+
+		<!-- Hover States -->
+		<Style Selector="^:pointerover /template/ Thumb#thumb">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Palette.Highlight.Base}"/>
+		</Style>
+
+		<!-- Pressed States -->
+		<Style Selector="^:pressed">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Palette.Controls.Light}"/>
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Palette.Highlight.Light}"/>
+		</Style>
+		<Style Selector="^:pressed /template/ Thumb#thumb">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Palette.Highlight.Light}"/>
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Palette.Highlight.Light}"/>
+		</Style>
+		<Style Selector="^:pressed:horizontal /template/ Border#TrackBackground">
+			<Setter Property="Height" Value="8"/>
+		</Style>
+		<Style Selector="^:pressed:horizontal /template/ RepeatButton#PART_DecreaseButton">
+			<Setter Property="Height" Value="6"/>
+		</Style>
+		<Style Selector="^:pressed:vertical /template/ Border#TrackBackground">
+			<Setter Property="Width" Value="8"/>
+		</Style>
+		<Style Selector="^:pressed:vertical /template/ RepeatButton#PART_DecreaseButton">
+			<Setter Property="Width" Value="6"/>
+		</Style>
+
+		<!-- Direction States -->
+		<Style Selector="^[IsDirectionReversed=True]:horizontal /template/ RepeatButton#PART_DecreaseButton">
+			<Setter Property="Margin" Value="-6,0,0,0"/>
+		</Style>
+		<Style Selector="^[IsDirectionReversed=True]:vertical /template/ RepeatButton#PART_DecreaseButton">
+			<Setter Property="Margin" Value="0,0,0,-6"/>
+		</Style>
+
+		<!-- Max Value -->
+		<Style Selector="^ /template/ Border#TrackBackground[Tag=true]">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}"/>
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}"/>
+		</Style>
+
+		<!-- Min Value -->
+		<Style Selector="^ /template/ RepeatButton#PART_DecreaseButton[Tag=true]">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Base}"/>
+		</Style>
+
+		<!--TickBar Placement States-->
+		<Style Selector="^[TickPlacement=TopLeft] /template/ TickBar#LeftTickBar, ^[TickPlacement=Outside] /template/ TickBar#LeftTickBar">
+			<Setter Property="IsVisible" Value="True" />
+		</Style>
+		<Style Selector="^[TickPlacement=TopLeft] /template/ TickBar#TopTickBar, ^[TickPlacement=Outside] /template/ TickBar#TopTickBar">
+			<Setter Property="IsVisible" Value="True" />
+		</Style>
+		<Style Selector="^[TickPlacement=BottomRight] /template/ TickBar#BottomTickBar, ^[TickPlacement=Outside] /template/ TickBar#BottomTickBar">
+			<Setter Property="IsVisible" Value="True" />
+		</Style>
+		<Style Selector="^[TickPlacement=BottomRight] /template/ TickBar#RightTickBar, ^[TickPlacement=Outside] /template/ TickBar#RightTickBar">
+			<Setter Property="IsVisible" Value="True" />
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>

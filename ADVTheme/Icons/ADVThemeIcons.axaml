@@ -1,0 +1,43 @@
+<Styles xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Styles.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Arrow.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Bug.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Caution.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Checkmark.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Chevron.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Controller.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Copy.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Delete.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/DeselectAll.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Dictionary.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Download.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Drive.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Duplicate.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Edit.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Error.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/File.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Floor.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Folder.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/GitHub.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Information.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Install.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Paste.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Plus.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Refresh.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Rename.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/RestoreAll.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Save.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/SelectAll.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Settings.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/SonicHead.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Swirl.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Update.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/Uninstall.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Icons/VMU.axaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Styles.Resources>
+</Styles>

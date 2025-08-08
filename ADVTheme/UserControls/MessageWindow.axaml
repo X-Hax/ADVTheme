@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="350"
+        x:Class="ADVTheme.UserControls.MessageWindow" xmlns:conv="using:ADVTheme.Converters"
+        Title="MessageWindow" SizeToContent="WidthAndHeight"
+		x:Name="PART_Window">
+
+
+	<Border Padding="10">
+		<Grid RowDefinitions="Auto,*,Auto">
+			<Grid Grid.Row="0" ColumnDefinitions="30,10,*" HorizontalAlignment="Center" VerticalAlignment="Top">
+				<Path x:Name="PART_Icon" />
+				<Label x:Name="PART_Title" Grid.Column="2" VerticalAlignment="Center"/>
+			</Grid>
+			<Grid Grid.Row="1" RowDefinitions="*,Auto">
+				<TextBlock x:Name="PART_Message" Grid.Row="0" Margin="10" TextWrapping="Wrap" />
+				<Grid x:Name="PART_CustomControlHolder" Grid.Row="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+			</Grid>
+
+
+			<Grid Grid.Row="2" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" ColumnDefinitions="Auto,5,Auto">
+				<Button x:Name="PART_LeftButton" Grid.Column="0" MinWidth="100"/>
+				<Button x:Name="PART_RightButton" Grid.Column="2" MinWidth="100"/>
+			</Grid>
+		</Grid>
+	</Border>
+</Window>

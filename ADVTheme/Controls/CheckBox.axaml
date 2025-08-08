@@ -1,0 +1,99 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+x:ClassModifier="internal">
+
+	<Design.PreviewWith>
+		<Border Padding="20">
+			<CheckBox Content="Checkbox" />
+		</Border>
+	</Design.PreviewWith>
+	<ControlTheme x:Key="{x:Type CheckBox}"
+	TargetType="CheckBox">
+		<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Brush.Foreground.Base}" />
+		<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Base}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Base}" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="CornerRadius" Value="{DynamicResource ADVTheme.CornerRadius}"/>
+		<Setter Property="Padding" Value="4,0,0,0" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="HorizontalContentAlignment" Value="Left" />
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Border Background="Transparent">
+					<Grid ColumnDefinitions="Auto,*">
+						<Border Name="border"
+								Width="18"
+								Height="18"
+								VerticalAlignment="Center"
+								Background="{TemplateBinding Background}"
+								BorderBrush="{TemplateBinding BorderBrush}"
+								BorderThickness="{TemplateBinding BorderThickness}"
+								CornerRadius="{TemplateBinding CornerRadius}">
+							<Panel>
+								<Path Name="checkMark" Margin="0.5"
+										HorizontalAlignment="Center"
+										VerticalAlignment="Center"
+										Data="{StaticResource ADVTheme.Icon.Checkmark}"
+										Fill="{DynamicResource ADVTheme.Brush.Highlight.Base}"
+										FlowDirection="LeftToRight"
+										Stretch="Uniform" />
+								<Rectangle Name="indeterminateMark" Margin="0.5"
+											 HorizontalAlignment="Center"
+											 VerticalAlignment="Center"
+											 Fill="{DynamicResource ADVTheme.Brush.Highlight.Base}"
+											 Stretch="Uniform" />
+							</Panel>
+						</Border>
+						<ContentPresenter Name="PART_ContentPresenter"
+											Grid.Column="1"
+											Margin="{TemplateBinding Padding}"
+											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+											Content="{TemplateBinding Content}"
+											ContentTemplate="{TemplateBinding ContentTemplate}"
+											IsVisible="{TemplateBinding Content,
+Converter={x:Static ObjectConverters.IsNotNull}}"
+											RecognizesAccessKey="True"
+											TextElement.Foreground="{TemplateBinding Foreground}" />
+					</Grid>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+		<Style Selector="^:pointerover /template/ Border#border">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Light}"/>
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}" />
+		</Style>
+		<Style Selector="^:pressed /template/ Border#border">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Lighter}"/>
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Light}"/>
+		</Style>
+		<Style Selector="^ /template/ Path#checkMark">
+			<Setter Property="IsVisible" Value="False" />
+		</Style>
+		<Style Selector="^:checked:pointerover /template/ Path#checkMark">
+			<Setter Property="Fill" Value="{DynamicResource ADVTheme.Brush.Highlight.Light}"/>
+		</Style>
+		<Style Selector="^:checked:pressed /template/ Path#checkMark">
+			<Setter Property="Fill" Value="{DynamicResource ADVTheme.Brush.Highlight.Lighter}"/>
+		</Style>
+		<Style Selector="^ /template/ Rectangle#indeterminateMark">
+			<Setter Property="IsVisible" Value="False" />
+		</Style>
+		<Style Selector="^:checked /template/ Path#checkMark">
+			<Setter Property="IsVisible" Value="True" />
+		</Style>
+		<Style Selector="^:indeterminate /template/ Rectangle#indeterminateMark">
+			<Setter Property="IsVisible" Value="True" />
+		</Style>
+		<Style Selector="^:indeterminate:pointerover /template/ Rectangle#indeterminateMark">
+			<Setter Property="Fill" Value="{DynamicResource ADVTheme.Brush.Highlight.Light}"/>
+		</Style>
+		<Style Selector="^:indeterminate:pressed /template/ Rectangle#indeterminateMark">
+			<Setter Property="Fill" Value="{DynamicResource ADVTHeme.Brush.Highlight.Lighter}"/>
+		</Style>
+		<Style Selector="^:disabled">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Dark}"/>
+			<Setter Property="Opacity" Value="{DynamicResource ADVTheme.Opacity.Disabled}" />
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>

@@ -1,0 +1,72 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:ClassModifier="internal">
+
+	<Styles.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/Flyout.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/AdornerLayer.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/Button.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/RadioButton.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/Expander.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/RepeatButton.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ToggleSwitch.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ButtonSpinner.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ToggleButton.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/PathIcon.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/CheckBox.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ToolTip.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/Label.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ComboBoxItem.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ComboBox.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/Window.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/Carousel.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/CaptionButtons.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/TitleBar.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/TextBox.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/AutoCompleteBox.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/DataValidationErrors.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/FlyoutPresenter.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/MenuFlyoutPresenter.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/GridSplitter.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/HyperlinkButton.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ItemsControl.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ListBoxItem.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ListBox.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ScrollBar.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ScrollViewer.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/TabControl.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/TabItem.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/PopupRoot.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/OverlayPopupHost.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/WindowNotificationManager.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/EmbeddableControlRoot.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/TransitioningContentControl.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/TreeView.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/TreeViewItem.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ProgressBar.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/Separator.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/Menu.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/MenuItem.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ContextMenu.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/Slider.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/NotificationCard.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/NumericUpDown.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/SplitView.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ManagedFileChooser.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/SplitButton.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/SelectableTextBlock.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/RefreshContainer.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/RefreshVisualizer.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ThemeVariantScope.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/HeaderedContentControl.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/TextSelectionHandle.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/DropDownButton.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/Path.axaml" />
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ColorPicker/ColorViewer.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/ColorPicker/ColorPicker.axaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Styles.Resources>
+</Styles>

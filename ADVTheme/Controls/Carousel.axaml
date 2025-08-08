@@ -1,0 +1,31 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+x:ClassModifier="internal">
+	<Design.PreviewWith>
+		<Border Padding="20" Width="400" Height="500">
+			<Carousel AutoScrollToSelectedItem="True" SelectedIndex="0">
+				<Carousel.Items>
+					<Image Source="{StaticResource ADVTheme.Icon.SonicHead}"/>
+					<Image Source="{StaticResource ADVTheme.Icon.Controller}"/>
+					<Image Source="{StaticResource ADVTheme.Icon.VMU}"/>
+				</Carousel.Items>
+			</Carousel>
+		</Border>
+	</Design.PreviewWith>
+
+	<ControlTheme x:Key="{x:Type Carousel}" TargetType="Carousel">
+		<Setter Property="Template">
+			<ControlTemplate>
+				<ScrollViewer Name="PART_ScrollViewer" Background="{TemplateBinding Background}"
+							  BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+							  BringIntoViewOnFocusChange="False"
+							  HorizontalScrollBarVisibility="Hidden"
+							  VerticalScrollBarVisibility="Hidden">
+					<ItemsPresenter Name="PART_ItemsPresenter"
+									ItemsPanel="{TemplateBinding ItemsPanel}"
+									Margin="{TemplateBinding Padding}"/>
+				</ScrollViewer>
+			</ControlTemplate>
+		</Setter>
+	</ControlTheme>
+</ResourceDictionary>

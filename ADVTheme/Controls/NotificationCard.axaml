@@ -1,0 +1,103 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					x:ClassModifier="internal">
+
+	
+	<Design.PreviewWith>
+		<Border Padding="0" Background="White">
+			<Grid RowDefinitions="Auto,*">
+				<Grid Grid.Row="1" RowDefinitions="*,*" ColumnDefinitions="*,*">
+					<NotificationCard Grid.Row="0" Grid.Column="0" Content="Information" NotificationType="Information" IsClosed="{Binding ElementName=ToggleButtonTest, Mode=TwoWay, Path=IsChecked}"/>
+					<NotificationCard Grid.Row="1" Grid.Column="0" Content="Success" NotificationType="Success"/>
+					<NotificationCard Grid.Row="0" Grid.Column="1" Content="Warning" NotificationType="Warning"/>
+					<NotificationCard Grid.Row="1" Grid.Column="1" Content="Error" NotificationType="Error"/>
+				</Grid>
+			</Grid>
+			
+			
+		</Border>
+	</Design.PreviewWith>
+	
+	<ControlTheme x:Key="{x:Type NotificationCard}"
+	TargetType="NotificationCard">
+		<Setter Property="Background" Value="{DynamicResource NotificationCardBackgroundBrush}" />
+		<Setter Property="UseLayoutRounding" Value="True" />
+		<Setter Property="Width" Value="300" />
+		<Setter Property="Foreground" Value="White" />
+		<Setter Property="RenderTransformOrigin" Value="50%,75%" />
+		<Setter Property="Template">
+			<ControlTemplate>
+				<LayoutTransformControl Name="PART_LayoutTransformControl"
+				UseRenderTransform="True">
+					<ContentPresenter Name="PART_ContentPresenter"
+					MinHeight="150"
+					Padding="8,8,0,0"
+					Background="{TemplateBinding Background}"
+					BorderBrush="{TemplateBinding BorderBrush}"
+					BorderThickness="{TemplateBinding BorderThickness}"
+					CornerRadius="{TemplateBinding CornerRadius}"
+					Content="{TemplateBinding Content}" />
+				</LayoutTransformControl>
+			</ControlTemplate>
+		</Setter>
+		<Style Selector="^">
+			<Style.Animations>
+				<Animation Easing="QuadraticEaseIn"
+				 FillMode="Both"
+				 Duration="0:0:0.45">
+					<KeyFrame Cue="0%">
+						<Setter Property="Opacity" Value="0"/>
+						<Setter Property="TranslateTransform.X" Value="-500" />
+					</KeyFrame>
+					<KeyFrame Cue="100%">
+						<Setter Property="Opacity" Value="1"/>
+						<Setter Property="TranslateTransform.X" Value="0" />
+					</KeyFrame>
+				</Animation>
+			</Style.Animations>
+		</Style>
+
+		<Style Selector="^[IsClosing=true] /template/ LayoutTransformControl#PART_LayoutTransformControl">
+			<Setter Property="RenderTransformOrigin" Value="50%,0%" />
+			<Style.Animations>
+				<Animation Easing="QuadraticEaseOut"
+				 FillMode="Forward"
+				 Duration="0:0:0.75">
+					<KeyFrame Cue="0%">
+						<Setter Property="Opacity" Value="1"/>
+						<Setter Property="TranslateTransform.X" Value="0" />
+					</KeyFrame>
+					<KeyFrame Cue="100%">
+						<Setter Property="Opacity" Value="0"/>
+						<Setter Property="TranslateTransform.X" Value="-500" />
+					</KeyFrame>
+				</Animation>
+			</Style.Animations>
+		</Style>
+
+		<Style Selector="^[IsClosing=true]">
+			<Style.Animations>
+				<Animation Easing="QuadraticEaseOut"
+				 FillMode="Forward"
+				 Duration="0:0:1.25">
+					<KeyFrame Cue="100%">
+						<Setter Property="IsClosed" Value="True" />
+					</KeyFrame>
+				</Animation>
+			</Style.Animations>
+		</Style>
+
+		<Style Selector="^:information">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Notification.Information}" />
+		</Style>
+		<Style Selector="^:success">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Notification.Success}" />
+		</Style>
+		<Style Selector="^:warning">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Notification.Warning}" />
+		</Style>
+		<Style Selector="^:error">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Notification.Error}" />
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>

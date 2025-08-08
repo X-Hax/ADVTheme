@@ -1,0 +1,124 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:converters="using:Avalonia.Controls.Converters"
+x:ClassModifier="internal">
+
+	<converters:CornerRadiusFilterConverter x:Key="PrimaryButtonCornerRadiusConverter" Filter="BottomLeft, TopLeft" Scale="0.5"/>
+	<converters:CornerRadiusFilterConverter x:Key="SecondaryButtonCornerRadiusConverter" Filter="BottomRight, TopRight" Scale="0.5"/>
+
+	<Design.PreviewWith>
+		<Border Padding="200">
+			<SplitButton Content="TestButton">
+				<SplitButton.Flyout>
+					<MenuFlyout Placement="BottomEdgeAlignedRight">
+						<MenuItem Header="Item"/>
+						<MenuItem Header="Item"/>
+						<MenuItem Header="Item"/>
+					</MenuFlyout>
+				</SplitButton.Flyout>
+			</SplitButton>
+		</Border>
+	</Design.PreviewWith>
+
+	<ControlTheme x:Key="SplitButtonDropDownButton" TargetType="Button">
+		<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Base}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Brush.Foreground.Base}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Base}"/>
+		<Setter Property="Padding" Value="4"/>
+		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Border x:Name="PART_Content" CornerRadius="{TemplateBinding CornerRadius}"
+						Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"
+						BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+					<PathIcon x:Name="PART_Icon" Data="{StaticResource ADVTheme.Icon.Chevron}" 
+							  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+
+		<Style Selector="^:pointerover">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Controls.Light}"/>
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}"/>
+		</Style>
+
+		<Style Selector="^:pressed">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}"/>
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Light}"/>
+		</Style>
+
+		<Style Selector="^[Tag=True]">
+			<Setter Property="Background" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}"/>
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Light}"/>
+		</Style>
+	</ControlTheme>
+
+	<ControlTheme x:Key="{x:Type SplitButton}" TargetType="SplitButton">
+		<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Brush.Foreground.Base}" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="CornerRadius" Value="{DynamicResource ADVTheme.CornerRadius}"/>
+		<Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
+		<Setter Property="Focusable" Value="True" />
+		<Setter Property="Padding" Value="4"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Border x:Name="PART_Root" 
+						ClipToBounds="True"
+						HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+						VerticalAlignment="{TemplateBinding VerticalAlignment}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="2" />
+							<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+
+						<Button x:Name="PART_PrimaryButton" Grid.Column="0"
+								BorderThickness="{TemplateBinding BorderThickness}"
+								Content="{TemplateBinding Content}" Padding="{TemplateBinding Padding}"
+								CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource PrimaryButtonCornerRadiusConverter}}"
+								ContentTemplate="{TemplateBinding ContentTemplate}"
+								Command="{TemplateBinding Command}"
+								CommandParameter="{TemplateBinding CommandParameter}"
+								FontFamily="{TemplateBinding FontFamily}"
+								FontSize="{TemplateBinding FontSize}"
+								FontWeight="{TemplateBinding FontWeight}"
+								HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+								VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+								Focusable="False"
+								KeyboardNavigation.IsTabStop="False" />
+
+						<Button x:Name="PART_SecondaryButton" Grid.Column="2"
+								Theme="{StaticResource SplitButtonDropDownButton}"
+								BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}"
+								CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource SecondaryButtonCornerRadiusConverter}}"
+								Focusable="False" 
+								KeyboardNavigation.IsTabStop="False">
+						</Button>
+					</Grid>
+				</Border>
+
+			</ControlTemplate>
+		</Setter>
+
+		<Style Selector="^:disabled">
+			<Setter Property="Opacity" Value="{DynamicResource ADVTheme.Opacity.Disabled}"/>
+		</Style>
+
+		<Style Selector="^:pointerover">
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}"/>
+		</Style>
+
+		<Style Selector="^:flyout-open">
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}"/>
+		</Style>
+
+		<Style Selector="^:flyout-open /template/ Button#PART_SecondaryButton">
+			<Setter Property="Tag" Value="True"/>
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>
