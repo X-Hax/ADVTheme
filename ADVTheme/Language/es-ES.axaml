@@ -1,0 +1,39 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					x:ClassModifier="public">
+	<!-- Any common strings to be shared across apps using these themes should be included here. -->
+	<x:String x:Key="Common.OK">OK</x:String>
+	<x:String x:Key="Common.Cancel">Cancelar</x:String>
+	<x:String x:Key="Common.Back">Volver</x:String>
+	<x:String x:Key="Common.Yes">Sí</x:String>
+	<x:String x:Key="Common.No">No</x:String>
+	<x:String x:Key="Common.Retry">Reintentar</x:String>
+	<x:String x:Key="Common.Undo">Deshacer</x:String>
+	<x:String x:Key="Common.Redo">Rehacer</x:String>
+	<x:String x:Key="Common.Theme">Tema</x:String>
+	<x:String x:Key="Common.Language">Idioma</x:String>
+	<x:String x:Key="Common.FontSize">Tamaño de la Fuente</x:String>
+	<x:String x:Key="Common.Small">Pequeña</x:String>
+	<x:String x:Key="Common.Normal">Normal</x:String>
+	<x:String x:Key="Common.Medium">Media</x:String>
+	<x:String x:Key="Common.Large">Grande</x:String>
+	<x:String x:Key="Common.Name">Nombre</x:String>
+	<x:String x:Key="Common.Hue">Tono</x:String>
+	<x:String x:Key="Common.Hue.ToolTip">Establece la ventana de selección de color para que funcione utilizando el valor del Tono.</x:String>
+	<x:String x:Key="Common.Saturation">Saturación</x:String>
+	<x:String x:Key="Common.Saturation.ToolTip">Establece la ventana de selección de color para que funcione utilizando el valor de la Saturación.</x:String>
+	
+	<!--ManagedFileChooser specific language strings go here.-->
+	<x:String x:Key="FileChooser.ShowHiddenFiles">Mostrar Archivos Ocultos</x:String>
+	<x:String x:Key="FileChooser.Filename">Nombre del Archivo</x:String>
+	<x:String x:Key="FileChooser.DateModified">Fecha de Modificación</x:String>
+	<x:String x:Key="FileChooser.FileType">Tipo de Archivo</x:String>
+	<x:String x:Key="FileChooser.FileSize">Tamaño del Archivo</x:String>
+	
+	<x:String x:Key="FileChooser.ShowQuickLinks">Mostrar Enlaces Rápidos</x:String>
+	<x:String x:Key="FileChooser.HideQuickLinks">Ocultar Enlaces Rápidos</x:String>
+	
+	<x:String x:Key="FileChooser.ToolTip.QuickLinks">Muestra u Oculta las opciones de Navegación de los Enlaces Rápidos</x:String>
+	<x:String x:Key="FileChooser.ToolTip.GoUp">Subir un Directorio</x:String>
+	<x:String x:Key="FileChooser.ToolTip.Refresh">Recargar</x:String>
+</ResourceDictionary>
