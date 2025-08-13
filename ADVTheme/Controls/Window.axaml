@@ -40,7 +40,7 @@
 									<RowDefinition Height="*"/>
 								</Grid.RowDefinitions>
 									<Grid ColumnDefinitions="32,Auto" IsHitTestVisible="False" IsVisible="{TemplateBinding ExtendClientAreaToDecorationsHint}">
-										<Viewbox Grid.Column="0" Child="{DynamicResource WindowIcon}" Margin="6" RenderOptions.BitmapInterpolationMode="HighQuality" MinHeight="{TemplateBinding ExtendClientAreaToDecorationsHint, Converter={StaticResource TitleBarVisibility}}"/>
+										<Viewbox Grid.Column="0" Child="{DynamicResource WindowIcon}" Margin="2" RenderOptions.BitmapInterpolationMode="HighQuality" MinHeight="{TemplateBinding ExtendClientAreaToDecorationsHint, Converter={StaticResource TitleBarVisibility}}"/>
 										<TextBlock Grid.Column="1" Text="{TemplateBinding Title}" FontSize="{TemplateBinding Property=FontSize, Converter={StaticResource TitleBarFontSizer}}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="Center"/>
 									</Grid>
 								<ContentPresenter Name="PART_ContentPresenter" Grid.Row="1"
