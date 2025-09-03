@@ -38,4 +38,13 @@
 	<SolidColorBrush x:Key="DataGridGridLinesBrush" Opacity="0.4" Color="{DynamicResource ADVTheme.Palette.Controls.Dark}" />
 	<SolidColorBrush x:Key="DataGridDetailsPresenterBackgroundBrush" Color="{DynamicResource ADVTheme.Palette.Controls.Dark}" />
 
+	<SolidColorBrush x:Key="DataGridRowBackgroundBrush" Color="Transparent" />
+	<sys:Double x:Key="DataGridRowSelectedBackgroundOpacity">0.5</sys:Double>
+	<sys:Double x:Key="DataGridRowSelectedHoveredBackgroundOpacity">0.7</sys:Double>
+	<sys:Double x:Key="DataGridRowSelectedUnfocusedBackgroundOpacity">0.3</sys:Double>
+	<sys:Double x:Key="DataGridRowSelectedHoveredUnfocusedBackgroundOpacity">0.5</sys:Double>
+	<SolidColorBrush x:Key="DataGridCellBackgroundBrush" Color="Transparent" />
+	<SolidColorBrush x:Key="DataGridCurrencyVisualPrimaryBrush" Color="Transparent" />
+	<SolidColorBrush x:Key="DataGridFillerColumnGridLinesBrush" Color="Transparent" />
+
 </ResourceDictionary>
