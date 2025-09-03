@@ -15,5 +15,27 @@
 	<SolidColorBrush x:Key="ColorControlDarkSelectorBrush" Color="Black"/>
 	<SolidColorBrush x:Key="ColorControlLightSelectorBrush" Color="White"/>
 	<SolidColorBrush x:Key="ThemeForegroundBrush" Color="{DynamicResource ADVTheme.Palette.Foreground.Base}"/>
+	
+	<!-- These are for the DataGrid -->
+	<SolidColorBrush x:Key="DataGridColumnHeaderForegroundBrush" Color="{DynamicResource ADVTheme.Palette.Foreground.Alt}" />
+	<SolidColorBrush x:Key="DataGridColumnHeaderBackgroundBrush" Color="{DynamicResource ADVTheme.Palette.Controls.Base}" />
+	<SolidColorBrush x:Key="DataGridColumnHeaderHoveredBackgroundBrush" Color="{DynamicResource ADVTheme.Palette.Controls.Light}" />
+	<SolidColorBrush x:Key="DataGridColumnHeaderPressedBackgroundBrush" Color="{DynamicResource ADVTheme.Palette.Controls.Lighter}" />
+	<SolidColorBrush x:Key="DataGridColumnHeaderDraggedBackgroundBrush" Color="{DynamicResource ADVTheme.Palette.Controls.Dark}" />
+	<SolidColorBrush x:Key="DataGridRowGroupHeaderBackgroundBrush" Color="{DynamicResource ADVTheme.Palette.Controls.Base}" />
+	<SolidColorBrush x:Key="DataGridRowGroupHeaderPressedBackgroundBrush" Color="{DynamicResource ADVTheme.Palette.Controls.Lighter}" />
+	<SolidColorBrush x:Key="DataGridRowGroupHeaderForegroundBrush" Color="{DynamicResource ADVTheme.Palette.Foreground.Alt}" />
+	<SolidColorBrush x:Key="DataGridRowGroupHeaderHoveredBackgroundBrush" Color="{DynamicResource ADVTheme.Palette.Controls.Light}" />
+	<SolidColorBrush x:Key="DataGridRowHoveredBackgroundColor" Color="{DynamicResource ADVTheme.Palette.Controls.Light}" />
+	<SolidColorBrush x:Key="DataGridRowInvalidBrush" Color="{DynamicResource ADVTheme.Palette.Red.Light}" />
+	<SolidColorBrush x:Key="DataGridRowSelectedBackgroundBrush" Color="{DynamicResource ADVTheme.Palette.Highlight.Base}" />
+	<SolidColorBrush x:Key="DataGridRowSelectedHoveredBackgroundBrush" Color="{DynamicResource ADVTheme.Palette.Highlight.Light}" />
+	<SolidColorBrush x:Key="DataGridRowSelectedUnfocusedBackgroundBrush" Color="{DynamicResource ADVTheme.Palette.Highlight.Dark}" />
+	<SolidColorBrush x:Key="DataGridRowSelectedHoveredUnfocusedBackgroundBrush" Color="{DynamicResource ADVTheme.Palette.Highlight.Lighter}" />
+	<SolidColorBrush x:Key="DataGridCellFocusVisualPrimaryBrush" Color="{DynamicResource ADVTheme.Palette.Foreground.Alt}" />
+	<SolidColorBrush x:Key="DataGridCellFocusVisualSecondaryBrush" Color="{DynamicResource ADVTheme.Palette.Highlight.Base}" />
+	<SolidColorBrush x:Key="DataGridCellInvalidBrush" Color="{DynamicResource ADVTheme.Palette.Red.Light}" />
+	<SolidColorBrush x:Key="DataGridGridLinesBrush" Opacity="0.4" Color="{DynamicResource ADVTheme.Palette.Controls.Dark}" />
+	<SolidColorBrush x:Key="DataGridDetailsPresenterBackgroundBrush" Color="{DynamicResource ADVTheme.Palette.Controls.Dark}" />
 
 </ResourceDictionary>
