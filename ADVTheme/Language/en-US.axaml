@@ -22,6 +22,9 @@
 	<x:String x:Key="Common.Hue.ToolTip">Sets the spectrum selection window to work by using the Hue value.</x:String>
 	<x:String x:Key="Common.Saturation">Saturation</x:String>
 	<x:String x:Key="Common.Saturation.ToolTip">Sets the spectrum selection window to work by using the Saturation value.</x:String>
+	<x:String x:Key="Common.Author">Author</x:String>
+	<x:String x:Key="Common.Category">Category</x:String>
+	<x:String x:Key="Common.Version">Version</x:String>
 	
 	<!--ManagedFileChooser specific language strings go here.-->
 	<x:String x:Key="FileChooser.ShowHiddenFiles">Show Hidden Files</x:String>
