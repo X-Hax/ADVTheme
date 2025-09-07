@@ -15,9 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.3.4" />
-    <PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.3.4" />
-    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.4" />
+    <PackageReference Include="Avalonia" Version="11.3.5" />
+    <PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.3.5" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.5" />
     <PackageReference Include="Markdown.Avalonia" Version="11.0.2" />
   </ItemGroup>
 
