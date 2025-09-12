@@ -66,6 +66,7 @@
 				<MergeResourceInclude Source="avares://ADVTheme/Controls/Path.axaml" />
 				<MergeResourceInclude Source="avares://ADVTheme/Controls/ColorPicker/ColorViewer.axaml"/>
 				<MergeResourceInclude Source="avares://ADVTheme/Controls/ColorPicker/ColorPicker.axaml"/>
+				<MergeResourceInclude Source="avares://ADVTheme/Controls/GroupBox.axaml"/>
 			</ResourceDictionary.MergedDictionaries>
 		</ResourceDictionary>
 	</Styles.Resources>
