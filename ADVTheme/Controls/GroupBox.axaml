@@ -1,0 +1,50 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:advcontrols="using:ADVTheme.Controls"
+					xmlns:converters="using:Avalonia.Controls.Converters">
+	<Design.PreviewWith>
+		<Border Margin="100">
+			<advcontrols:GroupBox Header="This is a GroupBox">
+				<Grid ColumnDefinitions="*,*,*" Margin="10">
+					<TextBlock Text="Hello "/>
+					<TextBlock Text="This is " Grid.Column="1"/>
+					<TextBlock Text="A group box's content" Grid.Column="2"/>
+				</Grid>
+			</advcontrols:GroupBox>
+		</Border>
+	</Design.PreviewWith>
+	
+	<converters:CornerRadiusFilterConverter x:Key="GroupBoxHeaderCorners" Filter="TopLeft,TopRight"/>
+
+	<ControlTheme x:Key="{x:Type advcontrols:GroupBox}" TargetType="advcontrols:GroupBox">
+		<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Base}"/>
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="BorderThickness" Value="2"/>
+		<Setter Property="CornerRadius" Value="{DynamicResource ADVTheme.CornerRadius}"/>
+		<Setter Property="HorizontalContentAlignment" Value="Left"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="Padding" Value="5"/>
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Border Name="PART_Border" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}"
+						BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{TemplateBinding CornerRadius}">
+					<Grid RowDefinitions="Auto,Auto">
+						<Border Name="PART_Header" Background="{TemplateBinding HeaderBackground}" CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource GroupBoxHeaderCorners}}">
+							<Grid RowDefinitions="Auto,Auto">
+								<TextBlock Margin="{TemplateBinding Padding}" Text="{TemplateBinding Header}" Grid.Row="0" Background="{TemplateBinding HeaderBackground}"
+										   HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
+								<Rectangle Fill="{TemplateBinding BorderBrush}" Height="2" Grid.Row="1"/>
+							</Grid>
+						</Border>
+						<ContentControl Name="PART_ContentControl" Grid.Row="1" Content="{TemplateBinding Content}"
+										HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+					</Grid>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+
+		<Style Selector="^:pointerover">
+			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Light}"/>
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>
