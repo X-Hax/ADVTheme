@@ -21,8 +21,6 @@
 		<Setter Property="Background" Value="Transparent"/>
 		<Setter Property="BorderThickness" Value="2"/>
 		<Setter Property="CornerRadius" Value="{DynamicResource ADVTheme.CornerRadius}"/>
-		<Setter Property="HorizontalContentAlignment" Value="Left"/>
-		<Setter Property="VerticalAlignment" Value="Center"/>
 		<Setter Property="Padding" Value="5"/>
 		<Setter Property="Template">
 			<ControlTemplate>
@@ -32,7 +30,7 @@
 						<Border Name="PART_Header" Background="{TemplateBinding HeaderBackground}" CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource GroupBoxHeaderCorners}}">
 							<Grid RowDefinitions="Auto,Auto">
 								<TextBlock Margin="{TemplateBinding Padding}" Text="{TemplateBinding Header}" Grid.Row="0" Background="{TemplateBinding HeaderBackground}"
-										   HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
+										   HorizontalAlignment="Left" VerticalAlignment="Center"/>
 								<Rectangle Fill="{TemplateBinding BorderBrush}" Height="2" Grid.Row="1"/>
 							</Grid>
 						</Border>
