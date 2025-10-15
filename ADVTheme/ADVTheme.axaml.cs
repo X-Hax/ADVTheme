@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
+using System.Collections.ObjectModel;
 
 namespace ADVTheme
 {
@@ -15,6 +16,12 @@ namespace ADVTheme
 			{ "Light", ThemeVariant.Light },
 			{ "Telegram", Telegram },
 		};
+		public static Dictionary<string, string> ThemeVariants = new Dictionary<string, string>()
+		{
+			{ "Dark", "Dark Theme" },
+			{ "Light", "Light Theme" },
+			{ "Telegram", "Telegram Night Theme" },
+		};
 
 		public ADVTheme()
 		{ 
@@ -26,9 +33,13 @@ namespace ADVTheme
 		/// </summary>
 		/// <param name="name">Key to retrieve the theme.</param>
 		/// <param name="theme">The <see cref="ThemeVariant"/> to be added.</param>
-		public static void AddTheme(string name, ThemeVariant theme)
+		public static void AddTheme(string name, ThemeVariant theme, string dispName = "")
 		{
 			themeVariants.Add(name, theme);
+			if (dispName == null || dispName.Length <= 0)
+				dispName = $"{name} Theme";
+
+			ThemeVariants.Add(name, dispName);
 		}
 
 		/// <summary>
