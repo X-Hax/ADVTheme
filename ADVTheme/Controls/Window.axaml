@@ -19,42 +19,10 @@
 		<Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource ADV.Color.Border}" />
 		<Setter Property="Foreground" Value="{DynamicResource ADVTheme.Brush.Foreground.Base}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Highlight.Base}"/>
-		<Setter Property="BorderThickness" Value="2"/>
-		<Setter Property="ExtendClientAreaToDecorationsHint" Value="{Binding Converter={StaticResource PlatformVerifier}}"/>
+		<Setter Property="BorderThickness" Value="0"/>
+		<!--Setter Property="ExtendClientAreaToDecorationsHint" Value="{Binding Converter={StaticResource PlatformVerifier}}"/-->
 		<Setter Property="Focusable" Value="True"/>
-		<Setter Property="Template">
-			<ControlTemplate>
-				<Panel>
-					<Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
-					<Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
-					<Panel Background="Transparent" Margin="{TemplateBinding WindowDecorationMargin}" />
-					<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-						<Panel>
-							<VisualLayerManager>
-								<TitleBar HorizontalAlignment="Stretch"/>
-							</VisualLayerManager>
 
-							<Grid>
-								<Grid.RowDefinitions>
-									<RowDefinition Height="Auto"/>
-									<RowDefinition Height="*"/>
-								</Grid.RowDefinitions>
-									<Grid ColumnDefinitions="32,Auto" IsHitTestVisible="False" IsVisible="{TemplateBinding ExtendClientAreaToDecorationsHint}">
-										<Viewbox Grid.Column="0" Child="{DynamicResource WindowIcon}" Margin="2" RenderOptions.BitmapInterpolationMode="HighQuality" MinHeight="{TemplateBinding ExtendClientAreaToDecorationsHint, Converter={StaticResource TitleBarVisibility}}"/>
-										<TextBlock Grid.Column="1" Text="{TemplateBinding Title}" FontSize="{TemplateBinding Property=FontSize, Converter={StaticResource TitleBarFontSizer}}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="Center"/>
-									</Grid>
-								<ContentPresenter Name="PART_ContentPresenter" Grid.Row="1"
-											  ContentTemplate="{TemplateBinding ContentTemplate}"
-											  Content="{TemplateBinding Content}"
-											  Margin="{TemplateBinding Padding}"
-											  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-											  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-							</Grid>
-						</Panel>
-					</Border>
-				</Panel>
-			</ControlTemplate>
-		</Setter>
 
 		<Style Selector="^:not(:focus-within)">
 			<Setter Property="BorderBrush" Value="{DynamicResource ADVTheme.Brush.Border.Base}"/>

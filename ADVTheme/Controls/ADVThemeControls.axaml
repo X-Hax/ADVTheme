@@ -22,8 +22,6 @@
 				<MergeResourceInclude Source="avares://ADVTheme/Controls/ComboBox.axaml" />
 				<MergeResourceInclude Source="avares://ADVTheme/Controls/Window.axaml" />
 				<MergeResourceInclude Source="avares://ADVTheme/Controls/Carousel.axaml" />
-				<MergeResourceInclude Source="avares://ADVTheme/Controls/CaptionButtons.axaml" />
-				<MergeResourceInclude Source="avares://ADVTheme/Controls/TitleBar.axaml" />
 				<MergeResourceInclude Source="avares://ADVTheme/Controls/TextBox.axaml" />
 				<MergeResourceInclude Source="avares://ADVTheme/Controls/AutoCompleteBox.axaml" />
 				<MergeResourceInclude Source="avares://ADVTheme/Controls/DataValidationErrors.axaml" />
